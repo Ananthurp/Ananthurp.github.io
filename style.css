@@ -1,55 +1,98 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
+/* Reset and base */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+}
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
     color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
 }
 
+/* Header */
 header {
-    background-color: #212529;
-    color: #fff;
-    padding: 2rem;
+    background-color: #0d1117;
+    color: white;
     text-align: center;
+    padding: 3rem 1rem;
 }
-
+header h1 {
+    margin-bottom: 0.5rem;
+}
+header .links {
+    margin-top: 1rem;
+}
 header .links a {
-    color: #ffc107;
     margin: 0 10px;
+    color: #58a6ff;
     text-decoration: none;
     font-weight: bold;
 }
-
-section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
+header .links a:hover {
+    text-decoration: underline;
 }
 
+/* Sections */
+section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+section h2 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+/* Project Section */
 .project {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .project img {
-    width: 150px;
-    height: auto;
+    max-width: 200px;
     margin-right: 1.5rem;
-    border-radius: 8px;
+    border-radius: 10px;
 }
-
+.project-text {
+    flex: 1;
+}
+.project-text h3 {
+    margin-bottom: 0.5rem;
+}
 .project-text a {
-    display: inline-block;
-    margin-top: 0.5rem;
     color: #007bff;
     text-decoration: none;
 }
+.project-text a:hover {
+    text-decoration: underline;
+}
 
+/* Contact */
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+}
+.contact-list li {
+    margin-bottom: 0.75rem;
+}
+
+/* Footer */
 footer {
-    background-color: #343a40;
+    background-color: #0d1117;
     color: white;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
