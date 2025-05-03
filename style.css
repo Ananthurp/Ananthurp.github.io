@@ -38,20 +38,40 @@
     font-weight: 500;
   }
   
-  /* Hero */
+  /* Hero Section */
   .hero {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     padding: 3rem 2rem;
     gap: 2rem;
     max-width: 900px;
     margin: auto;
+    flex-wrap: wrap;
   }
   
-  .hero img {
-    width: 150px;
+  .hero-left img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
     border-radius: 50%;
+    border: 3px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hero-right {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .hero-right h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-right p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   /* Newsletter */
@@ -89,7 +109,7 @@
     margin-bottom: 1rem;
   }
   
-  /* Card layout */
+  /* Cards */
   .card {
     background: #fafafa;
     padding: 1rem 1.5rem;
@@ -125,5 +145,36 @@
     bottom: 0;
     width: 100%;
     border-top: 1px solid #ddd;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-right {
+      padding-top: 1rem;
+    }
+  
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-container ul {
+      flex-direction: column;
+      padding-top: 1rem;
+    }
+  
+    .newsletter input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .newsletter button {
+      width: 100%;
+    }
   }
   
