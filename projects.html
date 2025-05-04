@@ -10,10 +10,13 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (projects = active) -->
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">/</span>
+    <button class="hamburger" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
@@ -26,24 +29,19 @@
     </label>
   </nav>
 
-  <!-- PROJECTS -->
   <main class="section">
     <h2>Featured Projects</h2>
-
     <div class="grid">
       <a class="card" href="https://github.com/Ananthurp/resume-matcher" target="_blank">
         <img src="images/proj1.png" alt="Screenshot of Resume Matcher">
         <h3>Resume-Job Matcher</h3>
         <p>BERT-powered pipeline with NER-driven feedback to close skill gaps.</p>
       </a>
-
-      <!-- Duplicate <a class="card"> … </a> as you add projects -->
+      <!-- Add more <a class="card">…</a> blocks as you grow -->
     </div>
   </main>
 
-  <footer>
-    <p>© 2025&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p>
-  </footer>
+  <footer><p>© 2025&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p></footer>
   <script src="script.js" defer></script>
 </body>
 </html>
