@@ -1,10 +1,8 @@
-// ---------- dark ↔ light ----------
-const toggle=document.getElementById('mode-toggle');
+// Dark ↔ light theme toggle
+const cb = document.getElementById('mode-toggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-if(prefersDark) document.body.classList.add('dark');
+if(prefersDark){document.body.classList.add('dark');cb.checked=true;}
 
-toggle.addEventListener('click',()=>{
+cb.addEventListener('change', () => {
   document.body.classList.toggle('dark');
-  // change icon
-  toggle.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
 });

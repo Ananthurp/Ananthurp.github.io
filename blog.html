@@ -5,17 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog – Ananthu</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <nav>
-    <div class="brand">Ananthu</div>
-    <ul>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
+    <span class="divider">/</span>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button id="mode-toggle" aria-label="Toggle dark mode">🌙</button>
+    <label class="theme-switch">
+      <input type="checkbox" id="mode-toggle">
+      <span class="slider"></span>
+    </label>
   </nav>
 
   <main class="section">
@@ -24,16 +32,17 @@
       <a class="card" href="blog/post1.html">
         <h3>How I Built My Resume Matcher</h3>
         <p>Step-by-step breakdown of data prep, fine-tuning &amp; evaluation.</p>
-        <time datetime="2025-04-19">19 Apr 2025</time>
+        <time datetime="2025-04-19">19&nbsp;Apr&nbsp;2025</time>
       </a>
-      <!-- Add more blog cards -->
+      <!-- Add more blog cards below -->
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Ananthu Rajendran Pillai</p>
+    <p>© 2025&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p>
   </footer>
   <script src="script.js" defer></script>
 </body>
 </html>
+
 
