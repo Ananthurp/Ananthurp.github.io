@@ -1,29 +1,34 @@
-// // Dark ↔ light theme toggle
-// const cb = document.getElementById('mode-toggle');
-// const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-// if(prefersDark){document.body.classList.add('dark');cb.checked=true;}
-
-// cb.addEventListener('change', () => {
-//   document.body.classList.toggle('dark');
-// });
-
-/* ---------- light ↔ dark theme toggle with persistence ---------- */
-const cb = document.getElementById('mode-toggle');
-
-/* 1.  On load → honour the last choice (default = light) */
-const saved = localStorage.getItem('theme');
-if (saved === 'dark') {
-  document.body.classList.add('dark');
-  cb.checked = true;
-}
-
-/* 2.  When the switch is flipped → update page + storage */
-cb.addEventListener('change', () => {
-  if (cb.checked) {
-    document.body.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.body.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
-  }
-});
+/* ────────────────────────────────────────────────────────────────
+   script.js  –  light ↔ dark theme toggle with persistence
+   • Default: light
+   • Persist setting in localStorage  ("theme" = "light" | "dark")
+   • Works on every page as long as the navbar contains
+     <input type="checkbox" id="mode-toggle">
+   ──────────────────────────────────────────────────────────────── */
+   (function () {
+    // Grab the checkbox in the navbar
+    const checkbox = document.getElementById('mode-toggle');
+    if (!checkbox) return;               // safety guard
+  
+    /* --- 1. Apply saved preference on page load ----------------- */
+    const saved = localStorage.getItem('theme');   // "light" | "dark" | null
+    if (saved === 'dark') {
+      document.body.classList.add('dark');
+      checkbox.checked = true;
+    } else {
+      // (No need to add "light" class; absence of "dark" means light)
+      checkbox.checked = false;
+    }
+  
+    /* --- 2. Flip theme & store preference when user toggles ----- */
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  })();
+  
