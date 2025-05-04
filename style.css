@@ -1,11 +1,11 @@
 /* ── RESET & ROOT ───────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --accent:#3b82f6;          /* light mode accent */
+  --accent:#64748b;      /* slate-500  — medium gray-blue for light mode */
   --bg:#faf8f2;
   --text:#1e1e1e;
 
-  --accent-dark:#60a5fa;     /* dark mode accent */
+  --accent-dark:#94a3b8; /* slate-400  — a touch lighter for dark mode */
   --bg-dark:#101114;
   --text-dark:#e5e5e5;
   font-family:"Segoe UI",system-ui,sans-serif;
