@@ -42,7 +42,7 @@
      display:flex;align-items:center;justify-content:center;font-size:.65rem;
      background:#fff;border-radius:50%;transition:.3s;
    }
-   .theme-switch input:checked + .slider{background:#94a3b8;}
+   .theme-switch input:checked + .slider{background:var(--accent-dark);}
    .theme-switch input:checked + .slider::before{
      transform:translateX(22px);content:"🌞";
    }
