@@ -235,42 +235,19 @@ nav { /* … */ }
 }
 
 /* 2. Middle column (portrait) */
-.hero-middle {
-  /* lift it up to overlap slightly */
-  margin-top: -40px;
-  z-index: 2;
-  justify-self: center;
-}
+/* Portrait in the middle */
 .hero-middle img {
-  width: 200px;
-  height: 200px;
+  width: 150px;       /* was 200px */
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* 3. Right column (ML-tech image + optional pattern bg) */
-.hero-right {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* optional: put a subtle pattern behind your ML image */
-.hero-right::before {
-  content: "";
-  position: absolute;
-  top: -20px;   /* tweak to show pattern above image */
-  right: -20px; /* tweak to extend beyond */
-  bottom: -20px;
-  left: -20px;
-  background: url('images/pattern.png') center/cover no-repeat;
-  opacity: 0.2;
-  z-index: 1;
-}
+/* ML-tech image on the right */
 .hero-right img {
-  width: 260px;
+  width: 220px;       /* was 260px */
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -278,6 +255,28 @@ nav { /* … */ }
   position: relative;
   z-index: 2;
 }
+
+/* Responsive: stack & shrink on narrow viewports */
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hero-left {
+    text-align: center;
+  }
+  .hero-middle img {
+    width: 120px;
+    height: 120px;
+  }
+  .hero-right img {
+    width: 180px;
+  }
+}
+
+
 
 /* -- footer (same) -- */
 footer { /* … */ }
