@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog – Ananthu Rajendran Pillai</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – Ananthu</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav>
-    <div class="nav-container">
-      <h1 class="logo">Ananthu</h1>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+    <div class="brand">Ananthu</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="mode-toggle" aria-label="Toggle dark mode">🌙</button>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <main class="section">
-    <h2>Latest Blog Posts</h2>
-    <div class="blog-list">
-      <article class="card">
-        <h3><a href="blog/post1.html">How I Built My Resume Matcher</a></h3>
-        <p>Step-by-step breakdown of building a job matching system with NLP.</p>
-        <time datetime="2025-04-19">April 19, 2025</time>
-      </article>
-
-      <!-- repeat <article> blocks for each post -->
+    <h2>Latest Posts</h2>
+    <div class="grid">
+      <a class="card" href="blog/post1.html">
+        <h3>How I Built My Resume Matcher</h3>
+        <p>Step-by-step breakdown of data prep, fine-tuning &amp; evaluation.</p>
+        <time datetime="2025-04-19">19 Apr 2025</time>
+      </a>
+      <!-- Add more blog cards -->
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>Let’s connect:</p>
-    <p class="social">
-      <a href="mailto:ananthurpillai547@gmail.com">✉️ Email</a>
-      <a href="https://github.com/Ananthurp" target="_blank">🐱 GitHub</a>
-      <a href="https://linkedin.com/in/ananthurp5" target="_blank">🔗 LinkedIn</a>
-    </p>
     <p>© 2025 Ananthu Rajendran Pillai</p>
   </footer>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
+

@@ -1,136 +1,58 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ananthu Rajendran Pillai</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- ▸ NAVBAR -->
   <nav>
-    <div class="nav-container">
-      <h1>Ananthu</h1>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="Resume.pdf" download>Resume</a></li>
-      </ul>
-    </div>
+    <div class="brand">Ananthu</div>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="mode-toggle" aria-label="Toggle dark mode">🌙</button>
   </nav>
 
-  <header class="hero">
-    <div class="hero-left">
-      <img src="images/profile.jpg" alt="Ananthu Photo" />
-    </div>
-    <div class="hero-right">
-      <h2>Hi, I'm Ananthu 👋</h2>
-      <p>I’m a Machine Learning Engineer exploring NLP, optimization, and smart systems. Currently studying at NTU Singapore.</p>
-    </div>
-  </header>
-
-  <section class="newsletter">
-    <h2>Subscribe to my newsletter</h2>
-    <p>Insights on ML, tech, and personal growth – delivered monthly.</p>
-    <input type="email" placeholder="Enter your email" />
-    <button>Subscribe</button>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Featured Projects</h2>
-
-    <a href="https://github.com/Ananthurp/resume-matcher" class="card-link" target="_blank">
-      <div class="card">
-        <h3>Resume Matcher</h3>
-        <p>BERT-powered resume–job matching system with feedback via NER.</p>
-      </div>
-    </a>
-
-    <!-- Add more projects here -->
-  <!-- </section>
-
-  <section id="blog" class="section">
-    <h2>Latest Blog Posts</h2>
-    <div class="blog-posts">
-      <div class="card">
-        <h3>How I Built My Resume Matcher</h3>
-        <p>Step-by-step breakdown of building a job matching system using NLP.</p>
-        <a href="#">Read more →</a>
-      </div>
+  <!-- ▸ HERO -->
+  <section class="hero">
+    <img src="images/profile.jpg" alt="Portrait of Ananthu">
+    <div>
+      <h1>Hi, I’m Ananthu 👋</h1>
+      <p>Machine-learning enthusiast passionate about NLP, CV, optimisations & smart-building systems. Currently pursuing Masters in Computer Control and Automation at NTU Singapore.</p>
+      <a class="btn" href="Resume.pdf" download>Download CV</a>
     </div>
   </section>
 
-  <footer id="contact">
-    <p>Let's connect:</p>
-    <p>
-      <a href="mailto:ananthurpillai547@gmail.com">Email</a> |
-      <a href="https://github.com/Ananthurp" target="_blank">GitHub</a> |
-      <a href="https://linkedin.com/in/ananthurp5" target="_blank">LinkedIn</a> |
-      <a href="https://wa.me/917925056192" target="_blank">WhatsApp</a>
+  <!-- ▸ NEWS / TIMELINE -->
+  <section class="section">
+    <h2>What’s new</h2>
+    <ul class="timeline">
+      <li><time datetime="2025-05-01">May 2025&nbsp;—</time> Launched this personal website!</li>
+      <li><time datetime="2025-04-17">Apr 2025&nbsp;—</time> Presented YOLO→BrickSchema pipeline at NTU research forum.</li>
+      <li><time datetime="2024-08-01">Aug 2024&nbsp;—</time> Joined Schneider Electric (Energy Analytics intern).</li>
+      <!-- Add more as life unfolds -->
+    </ul>
+  </section>
+
+  <!-- ▸ FOOTER -->
+  <footer>
+    <p class="social">
+      <a href="mailto:ananthurpillai547@gmail.com">✉️</a>
+      <a href="https://github.com/Ananthurp" target="_blank">🐱</a>
+      <a href="https://linkedin.com/in/ananthurp5" target="_blank">🔗</a>
+      <a href="https://wa.me/6598765432" target="_blank">📱</a>   <!-- WhatsApp -->
+      <a href="tel:+65-9876-5432">☎️</a>                           <!-- phone -->
     </p>
     <p>© 2025 Ananthu Rajendran Pillai</p>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
-</html> -->
- <!-- --> 
-
-
- <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <title>Ananthu Rajendran Pillai</title>
-   <link rel="stylesheet" href="style.css" />
- </head>
- <body>
- 
-   <!-- NAVBAR (unchanged) -->
-   <nav>
-     <div class="nav-container">
-       <h1 class="logo">Ananthu</h1>
-       <ul class="nav-links">
-         <li><a href="index.html" class="active">Home</a></li>
-         <li><a href="projects.html">Projects</a></li>
-         <li><a href="blog.html">Blog</a></li>
-         <li><a href="contact.html">Contact</a></li>
-       </ul>
-     </div>
-   </nav>
- 
-   <!-- HERO -->
-   <header class="hero">
-     <!-- 1. Intro column -->
-     <div class="hero-left">
-       <h2>Hi, I’m Ananthu 👋</h2>
-       <p>A Machine Learning Engineer exploring NLP, optimization &amp; smart systems. Currently at NTU Singapore.</p>
-       <a href="Resume.pdf" download class="btn-resume">Download Resume</a>
-     </div>
- 
-     <!-- 2. Portrait in the middle -->
-     <div class="hero-middle">
-       <img src="images/profile.jpg" alt="Ananthu Portrait" />
-     </div>
- 
-     <!-- 3. ML-tech image on the right -->
-     <div class="hero-right">
-       <img src="images/ml-image.jpeg" alt="ML Illustration" />
-     </div>
-   </header>
- 
-   <!-- FOOTER (unchanged) -->
-   <footer>
-     <p>Let’s connect:</p>
-     <p class="social">
-       <a href="mailto:ananthurpillai547@gmail.com">✉️ Email</a>
-       <a href="https://github.com/Ananthurp" target="_blank">🐱 GitHub</a>
-       <a href="https://linkedin.com/in/ananthurp5" target="_blank">🔗 LinkedIn</a>
-     </p>
-     <p>© 2025 Ananthu Rajendran Pillai</p>
-   </footer>
- 
- </body>
- </html>
- 
+</html>
