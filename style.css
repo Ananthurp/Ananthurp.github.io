@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,7 +14,7 @@
   }
   
   /* Navbar */
-  nav {
+  /* nav {
     background: #f9f9f9;
     padding: 1rem 2rem;
     border-bottom: 1px solid #ddd;
@@ -37,9 +37,9 @@
     color: #333;
     font-weight: 500;
   }
-  
+   */
   /* Hero Section */
-  .hero {
+  /* .hero {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,10 +72,10 @@
   .hero-right p {
     font-size: 1rem;
     line-height: 1.5;
-  }
+  } */
   
   /* Newsletter */
-  .newsletter {
+  /* .newsletter {
     background: #f1f1f1;
     text-align: center;
     padding: 2rem;
@@ -96,10 +96,10 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+  } */
   
   /* Sections */
-  .section {
+  /* .section {
     padding: 2rem;
     max-width: 900px;
     margin: auto;
@@ -108,9 +108,9 @@
   .section h2 {
     margin-bottom: 1rem;
   }
-  
+   */
   /* Cards */
-  .card {
+  /* .card {
     background: #fafafa;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
@@ -134,10 +134,10 @@
   .card a {
     text-decoration: none;
     color: #007bff;
-  }
+  } */
   
   /* Footer */
-  footer {
+  /* footer {
     background: #f9f9f9;
     padding: 2rem;
     text-align: center;
@@ -146,9 +146,9 @@
     width: 100%;
     border-top: 1px solid #ddd;
   }
-  
+   */
   /* Responsive */
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     .hero {
       flex-direction: column;
       text-align: center;
@@ -177,4 +177,113 @@
       width: 100%;
     }
   }
-  
+   */ 
+
+   /* style.css */
+/* -------------- RESET -------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #f5f0e1;   /* soft beige */
+  color: #333;
+  min-height: 100vh;
+}
+
+/* -------------- NAVBAR -------------- */
+nav {
+  background: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5rem;
+  color: #8b5e3c; /* earthy brown */
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color .2s;
+}
+.nav-links a:hover {
+  color: #8b5e3c;
+}
+
+/* -------------- HERO -------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+.hero-col {
+  text-align: center;
+}
+.intro {
+  text-align: left;
+}
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  color: #8b5e3c;
+}
+.intro p {
+  margin-bottom: 1.5rem;
+}
+.btn-resume {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  background: #8b5e3c;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background .2s;
+}
+.btn-resume:hover {
+  background: #7a4e32;
+}
+.photo img,
+.artwork img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* -------------- FOOTER -------------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #fff;
+  margin-top: auto;
+  border-top: 1px solid #ddd;
+}
+footer p {
+  margin-bottom: .5rem;
+}
+.social a {
+  margin: 0 .5rem;
+  color: #555;
+  text-decoration: none;
+  font-size: .95rem;
+  transition: color .2s;
+}
+.social a:hover {
+  color: #8b5e3c;
+}
