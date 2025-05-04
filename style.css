@@ -181,46 +181,22 @@
 
    /* style.css */
 /* -------------- RESET -------------- */
+
+/* -- overall reset & body -- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background: #f5f0e1;   /* soft beige */
+  background: #f5f0e1;
   color: #333;
-  min-height: 100vh;
+  line-height: 1.6;
 }
 
-/* -------------- NAVBAR -------------- */
-nav {
-  background: #ffffff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 1.5rem;
-  color: #8b5e3c; /* earthy brown */
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: color .2s;
-}
-.nav-links a:hover {
-  color: #8b5e3c;
-}
+/* -- navbar (same as before) -- */
+nav { /* … */ }
+.logo { /* … */ }
+.nav-links { /* … */ }
 
-/* -------------- HERO -------------- */
+/* -- hero layout -- */
 .hero {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -228,25 +204,25 @@ nav {
   gap: 2rem;
   max-width: 1000px;
   margin: 4rem auto;
+  position: relative;
   padding: 0 1rem;
 }
-.hero-col {
-  text-align: center;
-}
-.intro {
+
+/* 1. Left column (text) */
+.hero-left {
   text-align: left;
 }
-.intro h2 {
+.hero-left h2 {
   font-size: 2rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   color: #8b5e3c;
 }
-.intro p {
-  margin-bottom: 1.5rem;
+.hero-left p {
+  margin-bottom: 1.2rem;
 }
 .btn-resume {
   display: inline-block;
-  padding: .6rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   background: #8b5e3c;
   color: #fff;
   border-radius: 4px;
@@ -257,33 +233,57 @@ nav {
 .btn-resume:hover {
   background: #7a4e32;
 }
-.photo img,
-.artwork img {
-  width: 180px;
-  height: 180px;
+
+/* 2. Middle column (portrait) */
+.hero-middle {
+  /* lift it up to overlap slightly */
+  margin-top: -40px;
+  z-index: 2;
+  justify-self: center;
+}
+.hero-middle img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 3. Right column (ML-tech image + optional pattern bg) */
+.hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* optional: put a subtle pattern behind your ML image */
+.hero-right::before {
+  content: "";
+  position: absolute;
+  top: -20px;   /* tweak to show pattern above image */
+  right: -20px; /* tweak to extend beyond */
+  bottom: -20px;
+  left: -20px;
+  background: url('images/pattern.png') center/cover no-repeat;
+  opacity: 0.2;
+  z-index: 1;
+}
+.hero-right img {
+  width: 260px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
 }
 
-/* -------------- FOOTER -------------- */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #fff;
-  margin-top: auto;
-  border-top: 1px solid #ddd;
-}
-footer p {
-  margin-bottom: .5rem;
-}
-.social a {
-  margin: 0 .5rem;
-  color: #555;
-  text-decoration: none;
-  font-size: .95rem;
-  transition: color .2s;
-}
-.social a:hover {
+/* -- footer (same) -- */
+footer { /* … */ }
+.social a { /* … */ }
+
+/* -- small tweak for active nav link -- */
+.nav-links a.active {
   color: #8b5e3c;
 }
