@@ -4,8 +4,8 @@
    *{margin:0;padding:0;box-sizing:border-box;}
    :root{
      /* accent colour pairs nicely with beige */
-     --accent:#8b5e3c;            /* cocoa-brown                 */
-     --accent-light:#a87453;      /* hover tint                  */
+     --accent:#654329;            /* cocoa-brown                 */
+     --accent-light:#553725;      /* hover tint                  */
    
      --bg:#f5efe5;                /* soft beige background       */
      --text:#1e1e1e;
