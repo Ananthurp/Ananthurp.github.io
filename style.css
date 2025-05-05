@@ -3,12 +3,12 @@
    ───────────────────────────────────────────────────────────── */
    *{margin:0;padding:0;box-sizing:border-box;}
    :root{
-     --accent:#64748b;          /* light accent */
-     --bg:#faf8f2;              /* beige light-mode background */
+     --accent:#cac4b9;          /* light accent */
+     --bg:#ecd181;              /* beige light-mode background */
      --text:#1e1e1e;
    
-     --accent-dark:#94a3b8;     /* dark accent */
-     --bg-dark:#1f1f23;         /* dark-gray background */
+     --accent-dark:#d3d7dc;     /* dark accent */
+     --bg-dark:#454547;         /* dark-gray background */
      --text-dark:#e5e5e5;
    
      font-family:"Segoe UI",system-ui,sans-serif;
