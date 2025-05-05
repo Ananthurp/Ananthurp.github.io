@@ -46,7 +46,7 @@
    .hero{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
      max-width:950px;margin:0 auto 3rem;}
    .hero img{
-     width:190px;height:190px;border-radius:50%;object-fit:cover;
+     width:230px;height:230px;border-radius:50%;object-fit:cover;
      box-shadow:0 4px 12px rgba(0,0,0,.15);
    }
    .hero h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
@@ -108,6 +108,6 @@
    
      /* hero stack */
      .hero{grid-template-columns:1fr;justify-items:center;text-align:center;}
-     .hero img{width:150px;height:150px;margin-bottom:1.2rem;}
+     .hero img{width:180px;height:180px;margin-bottom:1.2rem;}
    }
    
