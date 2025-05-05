@@ -4,14 +4,14 @@
    *{margin:0;padding:0;box-sizing:border-box;}
    :root{
      /* accent colour pairs nicely with beige */
-     --accent:#8b5e3c;            /* cocoa-brown                 */
-     --accent-light:#a87453;      /* hover tint                  */
+     --accent:#6887b3;            /* cocoa-brown                 */
+     --accent-light:#6f84ca;      /* hover tint                  */
    
      --bg:#f5efe5;                /* soft beige background       */
      --text:#1e1e1e;
    
-     --accent-dark:#d8a06a;       /* sand accent for night mode  */
-     --accent-dark-hover:#e6b17d;
+     --accent-dark:#6887b3;       /* sand accent for night mode  */
+     --accent-dark-hover:#6f84ca;
      --bg-dark:#1f1f23;           /* dark-slate background       */
      --text-dark:#e5e5e5;
    
