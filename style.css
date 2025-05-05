@@ -2,30 +2,28 @@
    Global styles – beige light mode | dark-gray night mode
    ──────────────────────────────────────────────────────────── */
    *{margin:0;padding:0;box-sizing:border-box;}
-   :root{
-     /* accent now equals body-text colour in each mode */
-     --accent:#000;
-     --accent-hover:#333;
-   
-     --bg:#f5efe5;          /* beige */
-     --text:#000;
-   
-     --bg-dark:#1f1f23;     /* dark slate */
-     --text-dark:#fff;
-   
-     font-family:"Segoe UI",system-ui,sans-serif;
-   }
-   body{
-     background:var(--bg);color:var(--text);
-     line-height:1.6;padding:2rem 4vw;
-     transition:background .3s,color .3s;
-   }
-   /* dark mode overrides */
-   .dark{
-     background:var(--bg-dark);color:var(--text-dark);
-     --accent:#fff;
-     --accent-hover:#ccc;
-   }
+    :root{
+      --accent:#000;
+      --accent-hover:#333;
+
+      --bg:#fafafa;            /* off-white               */
+      --text:#000;
+
+      --bg-dark:#1f1f23;       /* dark slate              */
+      --text-dark:#fff;
+
+      font-family:"Segoe UI",system-ui,sans-serif;
+    }
+    body{
+      background:var(--bg);color:var(--text);
+      line-height:1.6;padding:2rem 4vw;
+      transition:background .3s,color .3s;
+    }
+    .dark{
+      background:var(--bg-dark);color:var(--text-dark);
+      --accent:#fff;
+      --accent-hover:#ccc;
+    }
    
    /* ── NAVBAR ───────────────────────────────────────────────── */
    .navbar{display:flex;align-items:center;gap:1.2rem;max-width:1200px;margin:0 auto 3rem;}
@@ -66,11 +64,19 @@
    
    /* résumé pill button */
    .btn{
-     display:inline-block;background:var(--accent);color:#fff;
-     padding:.55rem 1.6rem;border-radius:999px;
-     text-decoration:none;transition:background .25s;
-   }
-   .btn:hover{background:var(--accent-hover);}
+      display:inline-block;
+      background:none;                /* outline style */
+      border:2px solid var(--accent);
+      color:var(--accent);
+      padding:.5rem 1.4rem;
+      border-radius:999px;
+      text-decoration:none;
+      transition:background .25s,color .25s;
+    }
+    .btn:hover{
+      background:var(--accent);
+      color:var(--bg);                /* black-on-white or white-on-dark */
+    }
    
    /* ── SECTION DIVIDER ─────────────────────────────────────── */
    .section-divider{border:0;border-top:1px solid rgba(0,0,0,.12);margin:2rem auto;max-width:960px;}
