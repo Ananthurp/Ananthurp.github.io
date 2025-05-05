@@ -4,23 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ananthu Rajendran Pillai</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome 6 free -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">|</span>
 
-    <button class="hamburger" aria-label="Toggle menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <button class="hamburger" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
 
     <ul class="nav-links">
       <li><a href="index.html"  class="active">Home</a></li>
@@ -32,27 +27,46 @@
     <button id="mode-toggle" class="theme-btn" aria-label="Toggle theme"></button>
   </nav>
 
-  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero">
-    <img src="images/profile.jpg" alt="Portrait of Ananthu">
+    <div>
+      <img src="images/profile.jpg" alt="Ananthu portrait">
+
+      <!-- social icons under pic -->
+      <p class="social hero-social">
+        <a href="mailto:ananthurpillai547@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com/Ananthurp"          aria-label="GitHub"   target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/ananthurp5"    aria-label="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://wa.me/917025056192"            aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:+65-846-002-77"                    aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+      </p>
+    </div>
+
     <div>
       <h1>Hi, I’m Ananthu 👋</h1>
+
       <p>
-        I’m a Master’s student in <strong>Computer Control &amp; Automation</strong> at NTU Singapore,
-        fascinated by machine-learning systems that bridge the physical and digital worlds.
+        I’m a machine-learning &amp; deep-learning enthusiast who loves building with NLP,
+        large-language models, computer vision and more.
       </p>
+
       <p>
-        Current interests: NLP, computer vision, optimisation, and the infra that turns ideas
-        into robust products.
+        Currently pursuing a <strong>Master’s in Computer Control &amp; Automation</strong> at
+        NTU Singapore.
       </p>
-      <a class="btn" href="Resume.pdf" download>Download CV</a>
+
+      <p>
+        Take a look at my projects
+        <a href="projects.html"><strong>here</strong></a>.
+      </p>
+
+      <a class="btn" href="Resume.pdf" target="_blank">View Résumé</a>
     </div>
   </section>
 
-  <!-- visual separator -->
   <hr class="section-divider">
 
-  <!-- ── WHAT’S NEW ─────────────────────────────────────────── -->
+  <!-- WHAT’S NEW -->
   <section class="section">
     <h2>What’s new</h2>
     <ul class="timeline">
@@ -63,20 +77,9 @@
     </ul>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
-  <footer>
-    <p class="social">
-      <a href="mailto:ananthurpillai547@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://github.com/Ananthurp"          aria-label="GitHub"   target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com/in/ananthurp5"    aria-label="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://wa.me/917025056192"            aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="tel:+65-846-002-77"                    aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
-    </p>
-    <p>© 2025 Ananthu Rajendran Pillai</p>
-  </footer>
-
-  <!-- JS -->
+  <footer><p>© 2025 Ananthu Rajendran Pillai</p></footer>
   <script src="script.js" defer></script>
 </body>
 </html>
+
 
