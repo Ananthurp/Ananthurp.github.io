@@ -121,6 +121,12 @@
      .hero{grid-template-columns:1fr;text-align:center;justify-items:center;}
      .hero img{width:180px;height:180px;margin-bottom:1.2rem;}
      .hero-social{justify-content:center;}
+
+     /* ↓↓↓ NEW: left-align the timeline on phones ↓↓↓ */
+      .timeline{
+        margin:3rem 0;       /* remove horizontal auto-centering */
+        padding-left:1rem;   /* add a bit of space from screen edge */
+      }
    }
    
    
