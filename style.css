@@ -81,17 +81,7 @@
    
    /* ── TIMELINE ─────────────────────────────────────────────── */
    .timeline{margin:3rem auto;max-width:900px;border-left:2px solid var(--accent);}
-   /* .timeline li{margin:0 0 1.6rem 1.3rem;position:relative;list-style:none;} */
-   .timeline li{
-      display:grid;
-      grid-template-columns:140px 1fr;   /* 140-px date column */
-      column-gap:1rem;
-      align-items:start;
-    
-      margin:0 0 1.6rem 1.3rem;
-      position:relative;
-      list-style:none;
-    }
+   .timeline li{margin:0 0 1.6rem 1.3rem;position:relative;list-style:none;}
    .timeline li::before{content:"";position:absolute;left:-12px;top:0;width:11px;height:11px;
      background:var(--accent);border-radius:50%;}
    .timeline time{font-size:.82rem;opacity:.75;display:inline-block;width:140px;}
