@@ -10,23 +10,23 @@
 </head>
 <body>
 
-  <!-- NAVBAR (home = active) -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">|</span>
     <button class="hamburger" aria-label="Toggle menu">
       <i class="fa-solid fa-bars"></i>
     </button>
+
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <label class="theme-switch">
-      <input type="checkbox" id="mode-toggle">
-      <span class="slider"></span>
-    </label>
+
+    <!-- theme button -->
+    <button id="mode-toggle" class="theme-btn" aria-label="Toggle theme"></button>
   </nav>
 
   <!-- HERO -->
@@ -39,12 +39,15 @@
         fascinated by machine-learning systems that bridge the physical and digital worlds.
       </p>
       <p>
-        Current interests: NLP, computer vision, optimisation, and the infra that turns ideas
+        Current interests: Natural Language Processing, Computer Vision, Optimisation, and the infra that turns ideas
         into robust products.
       </p>
       <a class="btn" href="Resume.pdf" download>Download CV</a>
     </div>
   </section>
+
+  <!-- Divider -->
+  <hr class="section-divider">
 
   <!-- WHAT’S NEW -->
   <section class="section">
@@ -72,5 +75,6 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
