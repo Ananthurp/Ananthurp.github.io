@@ -1,14 +1,18 @@
 /* ───────────────────────────────────────────────────────────────
-   Global styles  (slate-gray accent, beige + dark-gray BGs)
+   Global styles  •  beige ↔ dark-gray, warm-brown accent
    ───────────────────────────────────────────────────────────── */
    *{margin:0;padding:0;box-sizing:border-box;}
    :root{
-     --accent:#cac4b9;          /* light accent */
-     --bg:#ecd181;              /* beige light-mode background */
+     /* accent colour pairs nicely with beige */
+     --accent:#8b5e3c;            /* cocoa-brown                 */
+     --accent-light:#a87453;      /* hover tint                  */
+   
+     --bg:#f5efe5;                /* soft beige background       */
      --text:#1e1e1e;
    
-     --accent-dark:#d3d7dc;     /* dark accent */
-     --bg-dark:#454547;         /* dark-gray background */
+     --accent-dark:#d8a06a;       /* sand accent for night mode  */
+     --accent-dark-hover:#e6b17d;
+     --bg-dark:#1f1f23;           /* dark-slate background       */
      --text-dark:#e5e5e5;
    
      font-family:"Segoe UI",system-ui,sans-serif;
@@ -30,10 +34,11 @@
      background:var(--accent);transition:width .25s;}
    .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
    
-   /* theme button */
+   /* theme icon button */
    .theme-btn{
      margin-left:auto;background:none;border:none;color:var(--accent);
-     font-size:1.3rem;cursor:pointer;line-height:1;display:flex;align-items:center;
+     font-size:1.28rem;cursor:pointer;line-height:1;display:flex;align-items:center;
+     transition:color .25s;
    }
    .dark .theme-btn{color:var(--accent-dark);}
    
@@ -45,13 +50,13 @@
      box-shadow:0 4px 12px rgba(0,0,0,.15);
    }
    .hero h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
-   .hero p{margin-bottom:1.2rem;max-width:540px;}
    .dark .hero h1{color:var(--accent-dark);}
+   .hero p{margin-bottom:1.2rem;max-width:540px;}
    .btn{display:inline-block;background:var(--accent);color:#fff;
      padding:.55rem 1.25rem;border-radius:5px;text-decoration:none;transition:.25s;}
-   .btn:hover{background:#475569;}
+   .btn:hover{background:var(--accent-light);}
    .dark .btn{background:var(--accent-dark);}
-   .dark .btn:hover{background:#6e7b93;}
+   .dark .btn:hover{background:var(--accent-dark-hover);}
    
    /* ── SECTION DIVIDER ───────────────────────────────────────── */
    .section-divider{
@@ -94,13 +99,14 @@
    
    /* ── RESPONSIVE LAYER (≤768 px) ───────────────────────────── */
    @media (max-width:768px){
-     /* navbar */
+     /* navbar layout */
      .hamburger{display:block;}
      .navbar{flex-wrap:wrap;}
-     .nav-links{flex-direction:column;gap:.8rem;width:100%;margin-top:.8rem;display:none;}
+     .theme-btn{order:2;margin-left:auto;}
+     .nav-links{order:3;flex-direction:column;gap:.8rem;width:100%;margin-top:.8rem;display:none;}
      .nav-links.open{display:flex;}
    
-     /* hero */
+     /* hero stack */
      .hero{grid-template-columns:1fr;justify-items:center;text-align:center;}
      .hero img{width:150px;height:150px;margin-bottom:1.2rem;}
    }
