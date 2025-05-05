@@ -109,8 +109,9 @@
    /* ── RESPONSIVE ≤768 px ─────────────────────────────────── */
    @media (max-width:768px){
      .hamburger{display:block;order:0;}
-     .brand{order:1;}
-     .divider{order:2;}
+     /* .brand{order:1;} */
+     .divider{order:1;}
+     .brand{order:2;}
      .theme-btn{order:3;margin-left:auto;}
      .navbar{flex-wrap:wrap;}
    
