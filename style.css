@@ -50,6 +50,7 @@
    .btn{display:inline-block;background:none;border:2px solid var(--accent);color:var(--accent);
      padding:.5rem 1.4rem;border-radius:999px;text-decoration:none;transition:background .25s,color .25s;}
    .btn:hover{background:var(--accent);color:var(--bg);}
+   .dark .btn:hover{color:var(--bg-dark);}
    
    /* divider */
    .section-divider{border:0;border-top:1px solid rgba(0,0,0,.12);margin:2rem auto;max-width:960px;}
@@ -68,6 +69,12 @@
    .timeline .event{grid-column:2;}
    
    /* ── FOOTER & cards, contact list … (unchanged, omitted for brevity) */
+   footer{
+    text-align:center;
+    font-size:.9rem;
+    opacity:.85;
+    margin-top:auto;
+  }
    
    /* ── MOBILE ≤768 px ───────────────────────────────────────── */
    @media (max-width:768px){
