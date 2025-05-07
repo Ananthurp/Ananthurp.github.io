@@ -37,7 +37,7 @@
    .theme-btn{margin-left:auto;background:none;border:none;color:var(--accent);
      font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .25s;}
    
-   /* ── HERO (unchanged) ─────────────────────────────────────── */
+   /* ── HERO ─────────────────────────────────────────────────── */
    .hero{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
      max-width:950px;margin:0 auto 3rem;}
    .hero img{width:230px;height:230px;border-radius:50%;object-fit:cover;
@@ -56,6 +56,13 @@
    .section-divider{border:0;border-top:1px solid rgba(0,0,0,.12);margin:2rem auto;max-width:960px;}
    .dark .section-divider{border-top:1px solid rgba(255,255,255,.18);}
    
+   /* ── NEW: align section headings with navbar left edge ────── */
+   .section{
+     max-width:1200px;            /* 1200px matches .navbar */
+     margin:0 auto 3rem;
+     padding:0 1rem;
+   }
+   
    /* ── TIMELINE (desktop) ───────────────────────────────────── */
    .timeline{margin:3rem auto;max-width:900px;border-left:2px solid var(--accent);}
    .timeline li{
@@ -68,13 +75,13 @@
    .timeline time{font-size:.82rem;opacity:.75;}
    .timeline .event{grid-column:2;}
    
-   /* ── FOOTER & cards, contact list … (unchanged, omitted for brevity) */
+   /* footer */
    footer{
-    text-align:center;
-    font-size:.9rem;
-    opacity:.85;
-    margin-top:auto;
-  }
+     text-align:center;
+     font-size:.9rem;
+     opacity:.85;
+     margin-top:auto;
+   }
    
    /* ── MOBILE ≤768 px ───────────────────────────────────────── */
    @media (max-width:768px){
@@ -115,6 +122,5 @@
      .timeline li{grid-template-columns:min-content 1fr;column-gap:0.75rem;}
      .timeline .event{grid-column:2;}
    }
-   
    
    
