@@ -1,39 +1,101 @@
 (() => {
-  /* theme toggle */
-  const btn = document.getElementById('mode-toggle');
-  const KEY = 'theme';
-  const icon = d => `<i class="fa-solid fa-${d ? 'sun' : 'moon'}"></i>`;
+  /* Theme toggle */
+  const modeToggleBtn = document.getElementById('mode-toggle');
+  const THEME_KEY = 'theme';
+  const sunIcon = '<i class="fa-solid fa-sun"></i>';
+  const moonIcon = '<i class="fa-solid fa-moon"></i>';
 
-  if (btn){
-    const dark = localStorage.getItem(KEY) === 'dark';
-    if (dark) document.body.classList.add('dark');
-    btn.innerHTML = icon(dark);
-    btn.onclick = () => {
-      const d = document.body.classList.toggle('dark');
-      localStorage.setItem(KEY, d ? 'dark' : 'light');
-      btn.innerHTML = icon(d);
+  if (modeToggleBtn) {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    let currentTheme = localStorage.getItem(THEME_KEY);
+
+    if (currentTheme === null) { // First visit
+        currentTheme = prefersDarkScheme.matches ? 'dark' : 'light';
+        localStorage.setItem(THEME_KEY, currentTheme);
+    }
+
+    const applyTheme = (theme) => {
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        modeToggleBtn.innerHTML = sunIcon;
+        modeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
+      } else {
+        document.body.classList.remove('dark');
+        modeToggleBtn.innerHTML = moonIcon;
+        modeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+      }
     };
+
+    applyTheme(currentTheme); // Apply stored or preferred theme on load
+
+    modeToggleBtn.onclick = () => {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+      applyTheme(isDark ? 'dark' : 'light'); // Re-apply to update icon and ARIA
+    };
+
+    // Listen for OS theme changes
+    prefersDarkScheme.addEventListener("change", (event) => {
+        const newTheme = event.matches ? "dark" : "light";
+        localStorage.setItem(THEME_KEY, newTheme); // Update storage
+        applyTheme(newTheme); // Apply the new OS-preferred theme
+    });
   }
 
   /* Hamburger → slide drawer */
-  const ham   = document.querySelector('.hamburger');
-  const menu  = document.querySelector('.nav-links');
-  const cover = document.querySelector('.backdrop');
+  const hamburgerBtn = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-links');
+  const backdropOverlay = document.querySelector('.backdrop');
 
   const closeDrawer = () => {
-    menu.classList.remove('open');
-    cover.classList.remove('show');
+    if (navMenu && backdropOverlay && hamburgerBtn) {
+      navMenu.classList.remove('open');
+      backdropOverlay.classList.remove('show');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
   };
 
-  if (ham && menu && cover){
-    ham.onclick = () => {
-      menu.classList.toggle('open');
-      cover.classList.toggle('show');
+  const openDrawer = () => {
+    if (navMenu && backdropOverlay && hamburgerBtn) {
+      navMenu.classList.add('open');
+      backdropOverlay.classList.add('show');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  if (hamburgerBtn && navMenu && backdropOverlay) {
+    hamburgerBtn.onclick = (e) => {
+      e.stopPropagation(); // Prevent click from bubbling to document
+      const isOpen = navMenu.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     };
-    cover.onclick = closeDrawer;
-    /* close when a nav link is tapped */
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+    backdropOverlay.onclick = closeDrawer;
+
+    /* Close when a nav link is tapped */
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        // Only close if it's a link within the current page (hash link) or a different page
+        // For single page apps, you might need more complex logic
+        closeDrawer();
+    }));
+
+    // Close drawer on 'Escape' key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
   }
+
+  /* Dynamic Year in Footer */
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
 })();
 
 

@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects – Ananthu</title>
+  <title>Projects – Ananthu Rajendran Pillai</title>
+
+  <meta name="description" content="Explore machine learning, deep learning, and AI projects by Ananthu Rajendran Pillai.">
+  <meta name="keywords" content="Ananthu Rajendran Pillai, Projects, Machine Learning, Deep Learning, AI, Portfolio">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://Ananthurp.github.io/projects.html">
+  <meta property="og:title" content="Projects – Ananthu Rajendran Pillai">
+  <meta property="og:description" content="Explore machine learning, deep learning, and AI projects by Ananthu Rajendran Pillai.">
+  <meta property="og:image" content="https://Ananthurp.github.io/images/profile.jpeg"> <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://Ananthurp.github.io/projects.html">
+  <meta name="twitter:title" content="Projects – Ananthu Rajendran Pillai">
+  <meta name="twitter:description" content="Explore machine learning, deep learning, and AI projects by Ananthu Rajendran Pillai.">
+  <meta name="twitter:image" content="https://Ananthurp.github.io/images/profile.jpeg"> <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet"
@@ -11,16 +25,15 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">|</span>
 
-    <button class="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-menu">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -32,20 +45,18 @@
 
   <div class="backdrop"></div>
 
-  <!-- CONTENT -->
   <main class="section">
     <h2>Featured Projects</h2>
     <div class="grid">
-      <a class="card" href="https://github.com/Ananthurp/resume-matcher" target="_blank">
-        <img src="images/proj1.png" alt="Resume Matcher">
+      <a class="card" href="https://github.com/Ananthurp/resume-matcher" target="_blank" rel="noopener noreferrer">
+        <img src="images/proj1.png" alt="Resume Matcher Project Thumbnail">
         <h3>Resume-Job Matcher</h3>
-        <p>BERT-powered pipeline with NER-driven feedback to close skill gaps.</p>
-      </a>
-      <!-- Add more <a class="card">…</a> blocks as you grow -->
-    </div>
+        <p>A BERT-powered pipeline designed with NER-driven feedback to effectively identify and help close skill gaps between resumes and job descriptions.</p>
+        </a>
+      </div>
   </main>
 
-  <footer><p>© 2025&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p></footer>
+  <footer><p>© <span id="current-year">2025</span>&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p></footer>
   <script src="script.js" defer></script>
 </body>
 </html>

@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog – Ananthu</title>
+  <title>Blog – Ananthu Rajendran Pillai</title>
+
+  <meta name="description" content="Read blog posts and articles by Ananthu Rajendran Pillai on machine learning, AI, technology, and personal development.">
+  <meta name="keywords" content="Ananthu Rajendran Pillai, Blog, Articles, Machine Learning, AI, Tech Insights">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://Ananthurp.github.io/blog.html">
+  <meta property="og:title" content="Blog – Ananthu Rajendran Pillai">
+  <meta property="og:description" content="Read blog posts and articles by Ananthu Rajendran Pillai on machine learning, AI, technology, and personal development.">
+  <meta property="og:image" content="https://Ananthurp.github.io/images/profile.jpeg"> <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://Ananthurp.github.io/blog.html">
+  <meta name="twitter:title" content="Blog – Ananthu Rajendran Pillai">
+  <meta name="twitter:description" content="Read blog posts and articles by Ananthu Rajendran Pillai on machine learning, AI, technology, and personal development.">
+  <meta name="twitter:image" content="https://Ananthurp.github.io/images/profile.jpeg"> <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet"
@@ -11,16 +25,15 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">|</span>
 
-    <button class="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-menu">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
@@ -32,22 +45,19 @@
 
   <div class="backdrop"></div>
 
-  <!-- CONTENT -->
   <main class="section">
     <h2>Latest Posts</h2>
     <div class="grid">
       <a class="card" href="blog/post1.html">
         <h3>How I Built My Resume Matcher</h3>
-        <p>Step-by-step breakdown of data prep, fine-tuning &amp; evaluation.</p>
+        <p>A step-by-step breakdown of the data preparation, model fine-tuning process, and evaluation techniques used in the Resume-Job Matcher project.</p>
         <time datetime="2025-04-19">19&nbsp;Apr&nbsp;2025</time>
       </a>
-      <!-- More blog cards -->
-    </div>
+      </div>
   </main>
 
-  <footer><p>© 2025&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p></footer>
+  <footer><p>© <span id="current-year">2025</span>&nbsp;Ananthu&nbsp;Rajendran&nbsp;Pillai</p></footer>
   <script src="script.js" defer></script>
 </body>
 </html>
-
 
