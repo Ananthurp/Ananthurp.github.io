@@ -51,14 +51,14 @@
    /* ── HERO ─────────────────────────────────────────────────── */
    .hero{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
      max-width:950px;margin:0 auto 3rem;}
-   .hero img{width:230px;height:230px;border-radius:50%;object-fit:cover;
+   .hero img{width:250px;height:250px;border-radius:50%;object-fit:cover;
      box-shadow:0 4px 12px rgba(0,0,0,.15);}
    .dark .hero img {box-shadow:0 4px 12px rgba(255,255,255,.1);}
    .hero h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
-   .hero p{margin-bottom:1.1rem;max-width:540px;} /* Increased max-width slightly */
+   .hero p{margin-bottom:1.1rem;max-width:540px;}
    .hero-social{display:flex;gap:.65rem;margin-top:1.1rem;justify-content:center;}
-   .hero-social a{font-size:1.3rem;color:inherit;transition:color .2s, transform .2s; /* Added transform */}
-   .hero-social a:hover{color:var(--accent); transform: scale(1.15); /* Slight scale up */}
+   .hero-social a{font-size:1.3rem;color:inherit;transition:color .2s, transform .2s;}
+   .hero-social a:hover{color:var(--accent); transform: scale(1.15);}
    .btn{display:inline-block;background:none;border:2px solid var(--accent);color:var(--accent);
      padding:.5rem 1.4rem;border-radius:999px;text-decoration:none;transition:background .25s,color .25s, transform .2s;}
    .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px);}
@@ -72,27 +72,27 @@
    .section{
      max-width:1000px;
      margin:0 auto 3rem;
-     padding:0 1rem; /* Ensures content doesn't touch edges on smaller viewports before media query */
+     padding:0 1rem;
    }
    .section h2 {
-     font-size: 1.8rem; /* Consistent heading size */
+     font-size: 1.8rem;
      margin-bottom: 1.5rem;
      color: var(--accent);
-     text-align: center; /* Center section titles */
+     text-align: center;
    }
    /* ── TIMELINE (desktop) ───────────────────────────────────── */
-   .timeline{margin:1rem auto 3rem;max-width:900px;border-left:2px solid var(--accent); padding-left: 1.3rem;} /* Adjusted margin-top and padding */
+   .timeline{margin:1rem auto 3rem;max-width:900px;border-left:2px solid var(--accent); padding-left: 1.3rem;}
    .timeline li{
      display:grid;grid-template-columns:140px 1fr;column-gap:1rem;align-items:start;
-     margin:0 0 1.6rem 0; /* Removed left margin, using padding on ul now */
+     margin:0 0 1.6rem 0;
      position:relative;list-style:none;
    }
    .timeline li::before{
-     content:"";position:absolute;left:-21.5px; /* Adjusted for padding on ul */
-     top:4px; /* Fine-tune vertical alignment */
+     content:"";position:absolute;left:-21.5px;
+     top:4px;
      width:11px;height:11px;
      background:var(--accent);border-radius:50%;
-     border: 2px solid var(--bg); /* Makes the dot stand out from the line */
+     border: 2px solid var(--bg);
    }
    .dark .timeline li::before { border-color: var(--bg-dark); }
    .timeline time{font-size:.82rem;opacity:.75;}
@@ -102,7 +102,7 @@
    /* ── Grid for Projects & Blog Cards ────────────────────────── */
    .grid {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); /* Responsive cards */
+     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
      gap: 1.5rem;
      margin-top: 1.5rem;
    }
@@ -134,8 +134,8 @@
    
    .card img {
      width: 100%;
-     height: 180px; /* Fixed height for uniform card image size */
-     object-fit: cover; /* Ensures image covers the area, might crop */
+     height: 180px;
+     object-fit: cover;
      border-radius: 4px;
      margin-bottom: 1rem;
    }
@@ -156,27 +156,27 @@
      font-size: .8rem;
      opacity: .7;
      margin-top: auto;
-     display: block; /* Ensure it takes its own line if needed */
+     display: block;
    }
    
    /* ── Contact Page List ────────────────────────────────────── */
    .contact-list {
      list-style: none;
      padding: 0;
-     margin: 1.5rem auto 0; /* Center the list if container is wider */
-     max-width: 600px; /* Constrain width for better readability */
+     margin: 1.5rem auto 0;
+     max-width: 600px;
    }
    
    .contact-list li {
      display: flex;
      align-items: center;
-     margin-bottom: 1.2rem; /* Increased spacing */
+     margin-bottom: 1.2rem;
      font-size: 1.05rem;
    }
    
    .contact-list li i {
      margin-right: .85rem;
-     font-size: 1.4rem; /* Slightly larger icons */
+     font-size: 1.4rem;
      width: 30px;
      text-align: center;
      color: var(--accent);
@@ -192,64 +192,72 @@
      text-align:center;
      font-size:.9rem;
      opacity:.85;
-     margin-top:auto; /* Pushes footer to bottom with flexbox on body */
-     padding: 2rem 0 1rem; /* Added some padding */
+     margin-top:auto;
+     padding: 2rem 0 1rem;
    }
    
    /* ── MOBILE ≤768 px ───────────────────────────────────────── */
    @media (max-width:768px){
-     body { padding: 1.5rem 5vw; } /* Adjust padding for mobile */
+     body { padding: 1.5rem 5vw; }
+   
+     .navbar{
+       /* display:flex; align-items:center; gap:1.2rem; are inherited and fine */
+       flex-wrap:wrap;
+       
+       /* UPDATED FOR MOBILE NAVBAR ALIGNMENT */
+       margin-left: 0;
+       margin-right: 0;
+       margin-top: 0; /* Or adjust as needed, removing auto L/R margin makes it full-width within body padding */
+       /* max-width: 1200px; is inherited but won't be an issue on mobile */
+       margin-bottom: 2rem; /* This was already set and is fine */
+     }
+   
      /* order row */
      .hamburger{display:block;order:0;}
      .divider{order:1;}
-     .brand{order:2; font-size: 1rem;} /* Slightly smaller brand on mobile */
-     .theme-btn{order:3;margin-left:auto;}
-     .navbar{flex-wrap:wrap; margin-bottom: 2rem;}
+     .brand{order:2; font-size: 1rem;}
+     .theme-btn{order:3;margin-left:auto;} /* This correctly pushes it to the right */
    
      /* slide-out drawer */
      .nav-links{
-       position:fixed;top:0;left:0;width:min(80vw, 300px); /* Responsive width */
+       position:fixed;top:0;left:0;width:min(80vw, 300px);
        height:100vh;
        background:var(--bg);flex-direction:column;gap:1.2rem;
-       padding:3rem 1.5rem 2rem; /* More padding at top */
+       padding:3rem 1.5rem 2rem;
        list-style:none;
        transform:translateX(-100%);transition:transform .3s ease;z-index:200;
        box-shadow:2px 0 8px rgba(0,0,0,.15);
-       overflow-y: auto; /* In case of many links */
+       overflow-y: auto;
      }
      .nav-links.open{transform:translateX(0);}
-     .nav-links a{font-size:1.1rem;padding:.3rem 0;} /* Slightly larger tap targets */
+     .nav-links a{font-size:1.1rem;padding:.3rem 0;}
    
-     /* dark mode drawer bg */
      .dark .nav-links{background:var(--bg-dark);}
    
-     /* backdrop */
      .backdrop{
        position:fixed;inset:0;background:rgba(0,0,0,.4);
        opacity:0;pointer-events:none;transition:opacity .3s;z-index:100;
      }
      .backdrop.show{opacity:1;pointer-events:auto;}
    
-     /* hero stack */
      .hero{grid-template-columns:1fr;text-align:center;justify-items:center; gap: 1.5rem;}
-     .hero img{width:180px;height:180px;margin-bottom:1rem;} /* Slightly smaller image */
+     .hero img{width:210px;height:210px;margin-bottom:1rem;}
      .hero h1 { font-size: 1.9rem; }
-     .hero p { max-width: 100%; } /* Allow text to use full width */
+     .hero p { max-width: 100%; }
    
-     /* timeline tidy */
-     .timeline{margin:2rem 0;padding-left:0.8rem;} /* Adjusted for mobile */
-     .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;} /* Simpler mobile layout */
+     .timeline{margin:2rem 0;padding-left:0.8rem;}
+     .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;}
      .timeline time { grid-column: 1; font-size: .75rem; padding-right: .5rem; white-space: nowrap;}
      .timeline .event{grid-column:2;}
-     .timeline li::before { left: -16.5px; /* Adjusted for new padding */ }
+     .timeline li::before { left: -16.5px; }
    
-     .section h2 { font-size: 1.6rem; } /* Slightly smaller section titles */
+     .section h2 { font-size: 1.6rem; }
    }
    
    @media (max-width:480px) {
      .hero img {width: 150px; height: 150px;}
      .hero h1 { font-size: 1.7rem; }
-     .timeline li { grid-template-columns: 1fr; } /* Stack time and event on very small screens */
+     .timeline li { grid-template-columns: 1fr; }
      .timeline time { margin-bottom: 0.25rem; }
      .timeline li::before { top: 7px; }
    }
