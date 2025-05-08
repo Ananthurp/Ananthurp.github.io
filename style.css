@@ -58,7 +58,7 @@
    
    /* ── NEW: align section headings with navbar left edge ────── */
    .section{
-     max-width:1400px;            /* 1200px matches .navbar */
+     max-width:1000px;            /* 1200px matches .navbar */
      margin:0 auto 3rem;
      padding:0 1rem;
    }
