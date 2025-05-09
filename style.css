@@ -65,7 +65,7 @@
      display:flex; 
      gap:0.4rem;
      list-style:none;
-     margin-left: 0.8rem;
+     margin-left: 1.5rem; /* Changed from 0.8rem to 1.5rem */
      margin-right: auto; 
    }
    .nav-links a{
@@ -86,6 +86,7 @@
    .theme-btn{
      background:none;border:none;color:var(--accent);
      font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .25s;
+     margin-right: 0.5rem; /* Added margin-right */
    }
    .theme-btn:hover{color: var(--accent-hover);}
    
@@ -119,13 +120,13 @@
    
    /* divider - Ensured visibility */
    .section-divider{
-     border: 0; /* Remove all other borders */
+     border: 0; 
      border-top: 1px solid var(--divider-color);
-     border-bottom: 1px solid var(--divider-color); /* Apply only top border with variable color */
-     height: 0; /* Collapse HR to only show the border */
-     margin: 2.5rem auto; /* Centered by default for desktop */
-     max-width: 950px; /* Max width consistent with sections */
-     overflow: clip; /* Ensure it's not clipped */
+     border-bottom: 1px solid var(--divider-color); 
+     height: 0; 
+     margin: 3rem auto 1.5rem auto; /* Changed margins */
+     max-width: 600px; /* Changed from 950px */
+     overflow: clip; 
    }
    
    /* ── Section Shared Styles (Desktop & Base) ───────────────── */
@@ -222,11 +223,8 @@
        top: 0;
        left: 0; 
        width: 50vw; 
-       /* As requested. For very small screens, consider a min-width if 25vw becomes too narrow: */
-       /* min-width: 180px; */ 
        height: 100vh; 
        background: var(--bg);
-       /* Increased gap for more space between items in the drawer */
        gap: 1.8rem; 
        padding: 3rem 1.5rem 2rem; 
        list-style: none; 
@@ -236,6 +234,7 @@
        box-shadow: 2px 0 10px rgba(0,0,0,0.1); 
        overflow-y: auto; 
        margin: 0; 
+       margin-left: 0; /* Reset for mobile */
      }
    
      .nav-links.open { 
@@ -263,7 +262,7 @@
      .divider{display: inline-block; order:1;}
      .hamburger{display:block;order:0;}
      .brand{order:2; font-size: 1rem;}
-     .theme-btn{order:3;margin-left:auto;}
+     .theme-btn{order:3;margin-left:auto; margin-right: 0; /* Reset for mobile */}
    
      .backdrop{
        position:fixed;inset:0;background:rgba(0,0,0,.4);
@@ -304,9 +303,8 @@
    
      /* Mobile specific divider centering and width */
      .section-divider { 
-       margin: 2rem auto; /* Still centered */
-       max-width: 90%; /* Takes 90% of its container width */
-       /* The border color will be inherited from the base .section-divider rule */
+       margin: 2rem auto; 
+       max-width: 90%; 
      }
    }
    
@@ -319,6 +317,4 @@
      .timeline time { margin-bottom: 0.25rem; text-align: left; }
      .timeline li::before { top: 7px; }
    }
-   
-   
   
