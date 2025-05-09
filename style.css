@@ -23,8 +23,8 @@
      --divider-color-dark: #505050;
    
      /* —— tweakable layout helpers —— */
-     --hero-divider-left: 320px;   /* start point of hero line (desktop)  */
-     --hero-divider-max: 580px;    /* max length of hero line (desktop)   */
+     --hero-divider-left: 280px;   /* start point of hero line (desktop)  */
+     --hero-divider-max: 700px;    /* max length of hero line (desktop)   */
      --navbar-shift:     0px;      /* +ve → shift name+links right        */
      --toggle-shift:     0px;      /* +ve → pull toggle left  (desktop)   */
    
