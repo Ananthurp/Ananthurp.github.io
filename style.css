@@ -74,7 +74,7 @@
    
    /* desktop / laptop: move whole nav block in by equal padding */
    @media (min-width: 769px) {
-     .navbar { padding-left: 2.2rem; padding-right: 2.2rem; } /* tweak as you like */
+     .navbar { padding-left: 2.2rem; padding-right: 9rem; } /* tweak as you like */
    }
    
    /* ── HERO ───────────────────────────────────────────────────── */
@@ -187,7 +187,7 @@
    
      .nav-links {
        position: fixed; top: 0; left: 0;
-       width: 50vw; height: 100vh; background: var(--bg);
+       width: 70vw; height: 100vh; background: var(--bg);
        flex-direction: column; gap: 1.8rem;
        padding: 3rem 1.5rem 2rem;
        transform: translateX(-100%);
