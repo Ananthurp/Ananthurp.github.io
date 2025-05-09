@@ -120,7 +120,8 @@
    /* divider - Ensured visibility */
    .section-divider{
      border: 0; /* Remove all other borders */
-     border-top: 1px solid var(--divider-color); /* Apply only top border with variable color */
+     border-top: 1px solid var(--divider-color);
+     border-bottom: 1px solid var(--divider-color); /* Apply only top border with variable color */
      height: 0; /* Collapse HR to only show the border */
      margin: 2.5rem auto; /* Centered by default for desktop */
      max-width: 950px; /* Max width consistent with sections */
