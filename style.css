@@ -6,12 +6,12 @@
      --accent:#000; --accent-hover:#333; --accent-rgb-val: 0,0,0;
      --bg:#fafafa;  --text:#000;
      --bg-card: #fff;
-     /* For a more visible divider */
-     --divider-color: #e0e0e0; 
+     /* Adjusted for more visible divider */
+     --divider-color: #d1d1d1; 
      --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255;
      --bg-card-dark: #2a2a2e;
-     /* For a more visible divider in dark mode */
-     --divider-color-dark: #4a4a4a; 
+     /* Adjusted for more visible divider in dark mode */
+     --divider-color-dark: #505050; 
      font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
    }
    html {
@@ -28,7 +28,7 @@
    .dark{
      background:var(--bg-dark);color:var(--text-dark);
      --accent:#fff; --accent-hover:#ccc; --accent-rgb-val: var(--accent-dark-rgb-val);
-     --divider-color: var(--divider-color-dark);
+     --divider-color: var(--divider-color-dark); /* Use the dark mode divider color */
    }
    
    /* links */
@@ -61,7 +61,7 @@
      padding: 0.25rem;
    }
    
-   .nav-links{ /* This is for desktop view and base for mobile drawer */
+   .nav-links{ 
      display:flex; 
      gap:0.4rem;
      list-style:none;
@@ -99,7 +99,7 @@
    .hero-image-container {
        text-align: center;
    }
-   .hero img{width:250px;height:250px;border-radius:50%;object-fit:cover;
+   .hero img{width:280px;height:280px;border-radius:50%;object-fit:cover;
      box-shadow:0 4px 12px rgba(0,0,0,.15); margin-bottom: 1rem;}
    .dark .hero img {box-shadow:0 4px 12px rgba(255,255,255,.1);}
    
@@ -117,12 +117,14 @@
    .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px);}
    .dark .btn:hover{color:var(--bg-dark);}
    
-   /* divider - Made more visible */
+   /* divider - Ensured visibility */
    .section-divider{
-     border:0;
-     border-top:1px solid var(--divider-color); /* Using dedicated variable */
-     margin:2.5rem auto; /* Centered by default */
-     max-width:950px; /* Max width consistent with sections */
+     border: 0; /* Remove all other borders */
+     border-top: 1px solid var(--divider-color); /* Apply only top border with variable color */
+     height: 0; /* Collapse HR to only show the border */
+     margin: 2.5rem auto; /* Centered by default for desktop */
+     max-width: 950px; /* Max width consistent with sections */
+     overflow: visible; /* Ensure it's not clipped */
    }
    
    /* ── Section Shared Styles (Desktop & Base) ───────────────── */
@@ -212,42 +214,43 @@
      }
      
      /* Mobile Drawer Styles */
-     .nav-links { /* Base for drawer, initially hidden and off-screen */
-       display: flex; /* Use flex for internal alignment of items */
-       flex-direction: column; /* Stack links vertically */
+     .nav-links { 
+       display: flex; 
+       flex-direction: column; 
        position: fixed;
        top: 0;
-       left: 0; /* Crucial: drawer starts at the very left edge of viewport */
-       width: 50vw; /* As requested: 1/4 of viewport width */
-       /* IMPORTANT: 25vw can be very narrow on small phones. Test thoroughly.
-          Consider adding: min-width: 180px; if it's too cramped. */
-       height: 100vh; /* Full viewport height */
+       left: 0; 
+       width: 50vw; 
+       /* As requested. For very small screens, consider a min-width if 25vw becomes too narrow: */
+       /* min-width: 180px; */ 
+       height: 100vh; 
        background: var(--bg);
-       padding: 3rem 1.5rem 2rem; /* Internal padding for content */
-       list-style: none; /* Ensure no list bullets */
-       transform: translateX(-100%); /* Initially off-screen to the left */
-       transition: transform 0.3s ease-in-out; /* Smooth slide */
-       z-index: 200; /* Above other content, below backdrop potentially if needed */
-       box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Softer shadow */
-       overflow-y: auto; /* Scroll if content exceeds height */
-       margin: 0; /* Reset any margins */
+       /* Increased gap for more space between items in the drawer */
+       gap: 1.8rem; 
+       padding: 3rem 1.5rem 2rem; 
+       list-style: none; 
+       transform: translateX(-100%); 
+       transition: transform 0.3s ease-in-out; 
+       z-index: 200; 
+       box-shadow: 2px 0 10px rgba(0,0,0,0.1); 
+       overflow-y: auto; 
+       margin: 0; 
      }
    
-     .nav-links.open { /* When drawer is active */
-       transform: translateX(0); /* Slide into view from the left */
+     .nav-links.open { 
+       transform: translateX(0); 
        box-shadow: 2px 0 10px rgba(var(--accent-rgb-val),0.2);
      }
-     .dark .nav-links { /* Specific background for dark mode drawer */
+     .dark .nav-links { 
        background: var(--bg-dark);
      }
    
-     /* Styles for links within the drawer */
      .nav-links a{ 
        font-size:1.1rem;
-       padding:.6rem .8rem; /* Adjusted padding for tap targets in drawer */
-       border-radius: 999px; /* Pill shape in drawer too */
-       width: 100%; /* Make links take full width of drawer content area */
-       text-align: left; /* Align text to the left within each link */
+       padding:.6rem .8rem; 
+       border-radius: 999px; 
+       width: 100%; 
+       text-align: left; 
      }
      .nav-links a:hover, .nav-links a.active {
        background-color: rgba(var(--accent-rgb-val), 0.08);
@@ -255,7 +258,6 @@
      .dark .nav-links a:hover, .dark .nav-links a.active {
        background-color: rgba(var(--accent-rgb-val), 0.15);
      }
-   
    
      .divider{display: inline-block; order:1;}
      .hamburger{display:block;order:0;}
@@ -299,14 +301,18 @@
      .timeline .event{grid-column:2;}
      .timeline li::before { left: -16.5px; }
    
-     .section-divider { margin: 2rem auto; max-width:90%;}
+     /* Mobile specific divider centering and width */
+     .section-divider { 
+       margin: 2rem auto; /* Still centered */
+       max-width: 90%; /* Takes 90% of its container width */
+       /* The border color will be inherited from the base .section-divider rule */
+     }
    }
    
    @media (max-width:480px) {
      body { padding: 1rem 4vw; }
      .hero img {width: 150px; height: 150px;}
      .hero-text-content h1 { font-size: 1.7rem; }
-   
    
      .timeline li { grid-template-columns: 1fr; }
      .timeline time { margin-bottom: 0.25rem; text-align: left; }
