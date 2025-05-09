@@ -34,33 +34,26 @@
   <nav class="navbar">
     <span class="brand">Ananthu&nbsp;Rajendran&nbsp;Pillai</span>
     <span class="divider">|</span>
-
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-menu">
       <i class="fa-solid fa-bars"></i>
     </button>
-
     <ul class="nav-links" id="nav-links-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
-
     <button id="mode-toggle" class="theme-btn" aria-label="Toggle theme"></button>
   </nav>
 
   <div class="backdrop"></div>
 
-  <main class="section">
+  <main class="section contact-section"> {/* Added class for specific styling if needed */}
     <h2>Get in Touch</h2>
-    <p>
+    <p class="contact-intro"> {/* Added class to control alignment if needed, otherwise inherits from .section */}
       I'm always open to collaborations, interesting discussions, or just a friendly chat.
       Feel free to reach out through any of the channels below!
     </p>
-    {/* If the above paragraph MUST be centered, you can add a class and style it:
-        <p class="centered-intro">...</p>
-        .centered-intro { text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
-    */}
 
     <ul class="contact-list">
       <li>

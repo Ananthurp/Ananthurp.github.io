@@ -6,7 +6,7 @@
      --accent:#000; --accent-hover:#333; --accent-rgb-val: 0,0,0;
      --bg:#fafafa;  --text:#000;
      --bg-card: #fff;
-     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255;
+     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255; /* Used for dark mode accent RGB */
      --bg-card-dark: #2a2a2e;
      font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
    }
@@ -15,7 +15,7 @@
    }
    body{
      background:var(--bg);color:var(--text);
-     line-height:1.6;padding:2rem 4vw; /* Body padding creates space for left-aligned content */
+     line-height:1.6;padding:2rem 4vw;
      transition:background .3s,color .3s;
      display: flex;
      flex-direction: column;
@@ -30,93 +30,108 @@
    a,a:visited{color:var(--accent); text-decoration: none;}
    a:hover{
      color:var(--accent-hover);
-     text-decoration: none; /* No underline on general links by default on hover */
+     text-decoration: none;
      opacity: 0.85; /* Subtle highlight for general links */
    }
+   a.btn:hover, .card:hover, .hero-social a:hover { /* Exclude buttons and cards from general link opacity hover */
+       opacity: 1;
+   }
    
-   /* ── NAVBAR (desktop) ─────────────────────────────────────── */
-   /* Desktop navbar: Brand & links left, theme toggle right */
+   
+   /* ── NAVBAR (Desktop & Base) ────────────────────────────────── */
    .navbar{
-     display:flex;align-items:center;gap:1.2rem;
-     max-width:100%; /* Allow navbar to span full width within body padding */
-     margin:0 0 3rem 0; /* Removed auto horizontal margins, align left */
-     padding: 0.5rem 0; /* Optional: Add some padding to the navbar itself */
+     display:flex;align-items:center;gap:0.8rem; /* Reduced gap slightly */
+     max-width:1200px; /* Max width for navbar */
+     margin:0 auto 3rem auto; /* Centered navbar block on desktop */
+     padding: 0.5rem 0;
    }
    .brand{font-weight:700;font-size:1.1rem;white-space:nowrap;}
-   .divider{opacity:.6; display: none;} /* Hide | divider on desktop, only for mobile */
+   .divider{
+     opacity:.6;
+     display:inline-block; /* Visible on desktop by default */
+   }
+   .hamburger{
+     display:none; /* Hidden on desktop */
+     border:none;background:none;font-size:1.35rem;color:inherit;cursor:pointer;
+     padding: 0.25rem; /* Ensure some tap area if it were visible */
+   }
    
-   /* nav-links inline for desktop */
-   .nav-links{display:flex;gap:0.5rem;list-style:none; margin-right: auto;} /* Pushes theme-btn to the right */
+   .nav-links{
+     display:flex; /* Visible on desktop */
+     gap:0.4rem; /* Gap between nav items */
+     list-style:none;
+     margin-left: 0.8rem; /* Space after divider */
+     margin-right: auto; /* Pushes theme-btn to the right */
+   }
    .nav-links a{
      color:inherit;text-decoration:none;position:relative;
-     padding:.3rem .6rem; /* Adjusted padding for background highlight */
-     border-radius: 4px; /* Rounded corners for highlight */
+     padding:.4rem .9rem; /* Padding for pill shape */
+     border-radius: 999px; /* Pill shape */
      transition: background-color .25s, color .25s;
+     font-size: 0.95rem; /* Slightly smaller nav links */
    }
-   /* Removed ::after underline effect */
-   .nav-links a:hover, .nav-links a.active { /* Combined hover and active style */
-     background-color: rgba(var(--accent-rgb-val), 0.07); /* Subtle background highlight */
-     color: var(--accent); /* Ensure text color remains or enhances */
+   .nav-links a:hover, .nav-links a.active {
+     background-color: rgba(var(--accent-rgb-val), 0.08);
+     color: var(--accent);
    }
    .dark .nav-links a:hover, .dark .nav-links a.active {
      background-color: rgba(var(--accent-rgb-val), 0.15);
    }
    
-   
-   /* theme button - already uses margin-left:auto in original HTML structure which is fine if nav-links doesn't push it*/
-   /* We ensured nav-links pushes it by adding margin-right: auto to nav-links */
    .theme-btn{
-     /* margin-left:auto; /* This is now handled by nav-links margin-right: auto */
      background:none;border:none;color:var(--accent);
      font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .25s;
    }
    .theme-btn:hover{color: var(--accent-hover);}
    
    
-   /* ── HERO ─────────────────────────────────────────────────── */
+   /* ── HERO (Desktop & Base) ─────────────────────────────────── */
    .hero{
-     display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
-     max-width:950px; /* Max width for readability */
-     margin:0 0 3rem 0; /* Left-aligned */
-     text-align: left; /* Ensure content within is left-aligned */
+     display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start; /* Align items to start for text block */
+     max-width:950px;
+     margin:0 auto 3rem auto; /* Centered block */
+   }
+   .hero-image-container { /* If you need specific alignment for image+social */
+       text-align: center; /* Centers the image and social links below it */
    }
    .hero img{width:230px;height:230px;border-radius:50%;object-fit:cover;
-     box-shadow:0 4px 12px rgba(0,0,0,.15);}
+     box-shadow:0 4px 12px rgba(0,0,0,.15); margin-bottom: 1rem;}
    .dark .hero img {box-shadow:0 4px 12px rgba(255,255,255,.1);}
    
-   .hero-text-content h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent); text-align: left;}
-   .hero-text-content p{margin-bottom:1.1rem;max-width:540px; text-align: left;}
-   .hero-text-content .btn { margin-top: 0.5rem; } /* Added some space above button */
+   .hero-text-content { text-align: left; } /* Text left-aligned within its column */
+   .hero-text-content h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
+   .hero-text-content p{margin-bottom:1.1rem;max-width:540px;}
+   .hero-text-content .btn { margin-top: 0.5rem; }
    
-   .hero-social{display:flex;gap:.65rem;margin-top:1.1rem;justify-content:center;} /* Social icons can remain centered under image */
+   .hero-social{display:flex;gap:.65rem;justify-content:center;}
    .hero-social a{font-size:1.3rem;color:inherit;transition:color .2s, transform .2s;}
-   .hero-social a:hover{color:var(--accent); transform: scale(1.15); opacity: 1;} /* Ensure full opacity on hover */
+   .hero-social a:hover{color:var(--accent); transform: scale(1.15);}
    
    .btn{display:inline-block;background:none;border:2px solid var(--accent);color:var(--accent);
      padding:.5rem 1.4rem;border-radius:999px;text-decoration:none;transition:background .25s,color .25s, transform .2s;}
-   .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px); opacity: 1;} /* Ensure full opacity */
+   .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px);}
    .dark .btn:hover{color:var(--bg-dark);}
    
    /* divider */
-   .section-divider{border:0;border-top:1px solid rgba(var(--accent-rgb-val),.12);margin:2.5rem 0;max-width:950px;} /* Left aligned, full width up to max */
+   .section-divider{border:0;border-top:1px solid rgba(var(--accent-rgb-val),.12);margin:2.5rem auto;max-width:950px;}
    .dark .section-divider{border-top:1px solid rgba(var(--accent-rgb-val),.18);}
    
-   /* ── Section Shared Styles ───────────────────────────────── */
+   /* ── Section Shared Styles (Desktop & Base) ───────────────── */
    .section{
-     max-width:950px; /* Consistent max-width for readability, aligned with hero */
-     margin:0 0 3rem 0; /* Left-aligned */
-     padding:0; /* Body padding will handle side spacing */
+     max-width:950px;
+     margin:0 auto 3rem auto; /* Centered block */
+     padding:0; /* Body padding handles side spacing */
    }
    .section h2 {
      font-size: 1.8rem;
      margin-bottom: 1.5rem;
      color: var(--accent);
-     text-align: left; /* Section headings left-aligned */
+     text-align: left; /* Section headings left-aligned within centered block */
    }
-   /* ── TIMELINE (desktop) ───────────────────────────────────── */
+   /* ── TIMELINE (Desktop & Base) ───────────────────────────────── */
    .timeline{
-     margin:1rem 0 3rem 0; /* Left-aligned, first child of left-aligned section */
-     max-width:100%; /* Timeline takes width of its .section parent */
+     margin:1rem 0 3rem 0; /* Sits within .section, so doesn't need auto margins */
+     max-width:100%;
      border-left:2px solid var(--accent); padding-left: 1.3rem;
    }
    .timeline li{
@@ -133,107 +148,48 @@
    }
    .dark .timeline li::before { border-color: var(--bg-dark); }
    .timeline time{font-size:.82rem;opacity:.75;}
-   .timeline .event{grid-column:2;}
+   .timeline .event{grid-column:2; text-align: left;} /* Timeline event text always left */
    
    
    /* ── Grid for Projects & Blog Cards ────────────────────────── */
-   .grid { /* Assuming .grid is inside a .section that is now left-aligned and has max-width */
+   .grid {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Slightly smaller min for cards */
+     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
      gap: 1.5rem;
      margin-top: 1.5rem;
-     max-width: 100%; /* Grid takes width of its .section parent */
    }
-   
    .card {
-     background: var(--bg-card);
-     padding: 1.5rem;
-     border-radius: 8px;
+     background: var(--bg-card);padding: 1.5rem;border-radius: 8px;
      box-shadow: 0 2px 8px rgba(var(--accent-rgb-val),.08);
-     text-decoration: none;
-     color: inherit;
+     text-decoration: none;color: inherit;
      transition: transform .2s ease-out, box-shadow .2s ease-out;
-     display: flex;
-     flex-direction: column;
+     display: flex;flex-direction: column;
    }
-   .card:hover { opacity: 1; } /* Override general link hover opacity for cards */
-   
    .dark .card {
-     background: var(--bg-card-dark);
-     box-shadow: 0 2px 8px rgba(var(--accent-rgb-val),.1); /* Adjusted for dark mode */
-   }
-   
+     background: var(--bg-card-dark);box-shadow: 0 2px 8px rgba(var(--accent-rgb-val),.1);}
    .card:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.12);
-   }
+     transform: translateY(-5px);box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.12);}
    .dark .card:hover {
-     box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.2); /* Adjusted for dark mode */
-   }
-   
+     box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.2);}
    .card img {
-     width: 100%;
-     height: 180px;
-     object-fit: cover;
-     border-radius: 4px;
-     margin-bottom: 1rem;
-   }
-   
-   .card h3 {
-     color: var(--accent);
-     margin-bottom: .5rem;
-     font-size: 1.25rem;
-   }
-   
-   .card p {
-     font-size: .9rem;
-     margin-bottom: .75rem;
-     flex-grow: 1;
-   }
-   
-   .card time {
-     font-size: .8rem;
-     opacity: .7;
-     margin-top: auto;
-     display: block;
-   }
+     width: 100%;height: 180px;object-fit: cover;border-radius: 4px;margin-bottom: 1rem;}
+   .card h3 {color: var(--accent);margin-bottom: .5rem;font-size: 1.25rem;}
+   .card p {font-size: .9rem;margin-bottom: .75rem;flex-grow: 1;}
+   .card time {font-size: .8rem;opacity: .7;margin-top: auto;display: block;}
    
    /* ── Contact Page List ────────────────────────────────────── */
-   .contact-list { /* Assuming .contact-list is inside a .section */
-     list-style: none;
-     padding: 0;
-     margin: 1.5rem 0 0 0; /* Left-aligned */
-     max-width: 100%; /* Takes width of its .section parent */
+   .contact-list {
+     list-style: none;padding: 0;margin: 1.5rem 0 0 0; /* Within centered .section */
    }
-   
-   .contact-list li {
-     display: flex;
-     align-items: center;
-     margin-bottom: 1.2rem;
-     font-size: 1.05rem;
-   }
-   .contact-list li a:hover { opacity: 0.85; } /* Apply general link hover */
-   .contact-list li a:hover i { transform: scale(1.1); opacity: 1; }
-   
-   
+   .contact-list li {display: flex;align-items: center;margin-bottom: 1.2rem;font-size: 1.05rem;}
    .contact-list li i {
-     margin-right: .85rem;
-     font-size: 1.4rem;
-     width: 30px;
-     text-align: center;
-     color: var(--accent);
-     transition: transform 0.2s;
-   }
+     margin-right: .85rem;font-size: 1.4rem;width: 30px;text-align: center;
+     color: var(--accent);transition: transform 0.2s;}
+   .contact-list li a:hover i {transform: scale(1.1);}
    
    
    /* footer */
-   footer{
-     text-align:center; /* Footer text can remain centered */
-     font-size:.9rem;
-     opacity:.85;
-     margin-top:auto;
-     padding: 2rem 0 1rem;
-   }
+   footer{text-align:center;font-size:.9rem;opacity:.85;margin-top:auto;padding: 2rem 0 1rem;}
    
    /* ── MOBILE ≤768 px ───────────────────────────────────────── */
    @media (max-width:768px){
@@ -241,32 +197,36 @@
    
      .navbar{
        flex-wrap:wrap;
-       margin-left: 0; margin-right: 0; margin-top: 0;
-       margin-bottom: 2rem;
-       padding: 0; /* Remove desktop padding for mobile navbar */
+       margin:0 0 2rem 0; /* Full width for mobile navbar container */
+       padding: 0;
+       gap: 0.6rem; /* Adjust gap for mobile navbar items */
      }
-     .nav-links { display: none; } /* Hidden, managed by JS for drawer */
-     .nav-links.open { display:flex; /* As per original script.js logic */
+     .nav-links { display: none !important; } /* Ensure it's hidden, JS will show */
+     .nav-links.open {
+       display:flex !important; /* Needs !important if base .nav-links has display:flex */
        position:fixed;top:0;left:0;width:min(80vw, 300px);
        height:100vh;
        background:var(--bg);flex-direction:column;gap:1.2rem;
        padding:3rem 1.5rem 2rem;
        list-style:none;
-       transform:translateX(0); /* JS toggles class, not transform directly */
+       transform:translateX(0);
        transition:transform .3s ease;z-index:200;
        box-shadow:2px 0 8px rgba(var(--accent-rgb-val),.15);
        overflow-y: auto;
-       margin-right: 0; /* Reset margin from desktop */
+       margin-right: 0; 
      }
-     /* This is the style for when it's not open (original state) */
      ul.nav-links:not(.open) { transform: translateX(-100%); }
-   
-   
-     .nav-links a{font-size:1.1rem;padding:.5rem .8rem;} /* Ensure good tap area */
      .dark .nav-links.open {background:var(--bg-dark);}
+     .nav-links a{font-size:1.1rem;padding:.5rem .8rem;} /* Ensure good tap area in drawer */
+     .nav-links a:hover, .nav-links a.active {
+       background-color: rgba(var(--accent-rgb-val), 0.08); /* Same hover as desktop for consistency */
+     }
+     .dark .nav-links a:hover, .dark .nav-links a.active {
+       background-color: rgba(var(--accent-rgb-val), 0.15);
+     }
    
    
-     .divider{display: inline-block; order:1;} /* Show | divider on mobile */
+     .divider{display: inline-block; order:1;}
      .hamburger{display:block;order:0;}
      .brand{order:2; font-size: 1rem;}
      .theme-btn{order:3;margin-left:auto;}
@@ -277,28 +237,47 @@
      }
      .backdrop.show{opacity:1;pointer-events:auto;}
    
-     .hero{grid-template-columns:1fr;text-align:center;justify-items:center; gap: 1.5rem; margin-left:0; margin-right:0;} /* Ensure hero is also full width in mobile */
-     .hero-text-content { text-align: left; } /* Hero text left aligned on mobile too */
-     .hero-text-content h1 { font-size: 1.9rem; }
-     .hero-text-content p { max-width: 100%; }
+     .hero{
+       grid-template-columns:1fr;
+       text-align:center; /* Center image container and text block */
+       justify-items:center;
+       gap: 1.5rem;
+       margin:0 auto 2rem auto; /* Centered block on mobile */
+     }
+     .hero-text-content { text-align: center; } /* Hero text centered on mobile */
+     .hero-text-content h1 { font-size: 1.9rem; text-align: center; }
+     .hero-text-content p { max-width: 100%; text-align: center; }
+     .hero-social { justify-content: center; } /* Ensure social icons are centered */
    
      .hero img{width:180px;height:180px;margin-bottom:1rem;}
    
-     .timeline{margin:2rem 0;padding-left:0.8rem;}
+     .section {
+       margin:0 auto 2rem auto; /* Centered block on mobile */
+     }
+     .section h2 {
+       font-size: 1.6rem;
+       text-align: center; /* Section headings centered on mobile */
+     }
+     .recent-news-section .timeline .event {
+         text-align: left; /* Keep timeline event text left-aligned for readability on mobile */
+     }
+   
+   
+     .timeline{margin:2rem 0;padding-left:0.8rem;} /* timeline itself is part of centered section */
      .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;}
      .timeline time { grid-column: 1; font-size: .75rem; padding-right: .5rem; white-space: nowrap;}
      .timeline .event{grid-column:2;}
      .timeline li::before { left: -16.5px; }
    
-     .section { margin-left:0; margin-right:0; padding:0; } /* Sections full width in mobile body padding */
-     .section h2 { font-size: 1.6rem; }
-     .section-divider { margin: 2rem 0; } /* Full width divider on mobile */
+     .section-divider { margin: 2rem auto; max-width:90%;} /* Centered, slightly shorter divider on mobile */
    }
    
    @media (max-width:480px) {
+     body { padding: 1rem 4vw; }
      .hero img {width: 150px; height: 150px;}
      .hero-text-content h1 { font-size: 1.7rem; }
+   
      .timeline li { grid-template-columns: 1fr; } /* Stack time and event on very small screens */
-     .timeline time { margin-bottom: 0.25rem; }
+     .timeline time { margin-bottom: 0.25rem; text-align: left; } /* Keep time left for stacked view */
      .timeline li::before { top: 7px; }
    }
