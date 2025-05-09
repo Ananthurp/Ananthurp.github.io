@@ -311,7 +311,7 @@
    
    @media (max-width:480px) {
      body { padding: 1rem 4vw; }
-     .hero img {width: 150px; height: 150px;}
+     .hero img {width: 210px; height: 210px;}
      .hero-text-content h1 { font-size: 1.7rem; }
    
      .timeline li { grid-template-columns: 1fr; }
