@@ -6,7 +6,7 @@
      --accent:#000; --accent-hover:#333; --accent-rgb-val: 0,0,0;
      --bg:#fafafa;  --text:#000;
      --bg-card: #fff;
-     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255; /* Used for dark mode accent RGB */
+     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255;
      --bg-card-dark: #2a2a2e;
      font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
    }
@@ -31,44 +31,44 @@
    a:hover{
      color:var(--accent-hover);
      text-decoration: none;
-     opacity: 0.85; /* Subtle highlight for general links */
+     opacity: 0.85;
    }
-   a.btn:hover, .card:hover, .hero-social a:hover { /* Exclude buttons and cards from general link opacity hover */
+   a.btn:hover, .card:hover, .hero-social a:hover, .nav-links a:hover { /* Exclude specific interactive elements from general link opacity hover */
        opacity: 1;
    }
    
    
    /* ── NAVBAR (Desktop & Base) ────────────────────────────────── */
    .navbar{
-     display:flex;align-items:center;gap:0.8rem; /* Reduced gap slightly */
-     max-width:1200px; /* Max width for navbar */
-     margin:0 auto 3rem auto; /* Centered navbar block on desktop */
+     display:flex;align-items:center;gap:0.8rem;
+     margin:0 0 3rem 0; /* Navbar block aligned to the left within body padding */
      padding: 0.5rem 0;
+     width: 100%; /* Navbar spans full width of its container (body's content area) */
    }
    .brand{font-weight:700;font-size:1.1rem;white-space:nowrap;}
    .divider{
      opacity:.6;
-     display:inline-block; /* Visible on desktop by default */
+     display:inline-block;
    }
    .hamburger{
-     display:none; /* Hidden on desktop */
+     display:none;
      border:none;background:none;font-size:1.35rem;color:inherit;cursor:pointer;
-     padding: 0.25rem; /* Ensure some tap area if it were visible */
+     padding: 0.25rem;
    }
    
    .nav-links{
-     display:flex; /* Visible on desktop */
-     gap:0.4rem; /* Gap between nav items */
+     display:flex;
+     gap:0.4rem;
      list-style:none;
-     margin-left: 0.8rem; /* Space after divider */
+     margin-left: 0.8rem;
      margin-right: auto; /* Pushes theme-btn to the right */
    }
    .nav-links a{
      color:inherit;text-decoration:none;position:relative;
-     padding:.4rem .9rem; /* Padding for pill shape */
+     padding:.4rem .9rem;
      border-radius: 999px; /* Pill shape */
      transition: background-color .25s, color .25s;
-     font-size: 0.95rem; /* Slightly smaller nav links */
+     font-size: 0.95rem;
    }
    .nav-links a:hover, .nav-links a.active {
      background-color: rgba(var(--accent-rgb-val), 0.08);
@@ -87,18 +87,18 @@
    
    /* ── HERO (Desktop & Base) ─────────────────────────────────── */
    .hero{
-     display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start; /* Align items to start for text block */
+     display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;
      max-width:950px;
      margin:0 auto 3rem auto; /* Centered block */
    }
-   .hero-image-container { /* If you need specific alignment for image+social */
-       text-align: center; /* Centers the image and social links below it */
+   .hero-image-container {
+       text-align: center;
    }
    .hero img{width:230px;height:230px;border-radius:50%;object-fit:cover;
      box-shadow:0 4px 12px rgba(0,0,0,.15); margin-bottom: 1rem;}
    .dark .hero img {box-shadow:0 4px 12px rgba(255,255,255,.1);}
    
-   .hero-text-content { text-align: left; } /* Text left-aligned within its column */
+   .hero-text-content { text-align: left; }
    .hero-text-content h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
    .hero-text-content p{margin-bottom:1.1rem;max-width:540px;}
    .hero-text-content .btn { margin-top: 0.5rem; }
@@ -120,17 +120,17 @@
    .section{
      max-width:950px;
      margin:0 auto 3rem auto; /* Centered block */
-     padding:0; /* Body padding handles side spacing */
+     padding:0;
    }
    .section h2 {
      font-size: 1.8rem;
      margin-bottom: 1.5rem;
      color: var(--accent);
-     text-align: left; /* Section headings left-aligned within centered block */
+     text-align: left;
    }
    /* ── TIMELINE (Desktop & Base) ───────────────────────────────── */
    .timeline{
-     margin:1rem 0 3rem 0; /* Sits within .section, so doesn't need auto margins */
+     margin:1rem 0 3rem 0;
      max-width:100%;
      border-left:2px solid var(--accent); padding-left: 1.3rem;
    }
@@ -148,7 +148,7 @@
    }
    .dark .timeline li::before { border-color: var(--bg-dark); }
    .timeline time{font-size:.82rem;opacity:.75;}
-   .timeline .event{grid-column:2; text-align: left;} /* Timeline event text always left */
+   .timeline .event{grid-column:2; text-align: left;}
    
    
    /* ── Grid for Projects & Blog Cards ────────────────────────── */
@@ -179,7 +179,7 @@
    
    /* ── Contact Page List ────────────────────────────────────── */
    .contact-list {
-     list-style: none;padding: 0;margin: 1.5rem 0 0 0; /* Within centered .section */
+     list-style: none;padding: 0;margin: 1.5rem 0 0 0;
    }
    .contact-list li {display: flex;align-items: center;margin-bottom: 1.2rem;font-size: 1.05rem;}
    .contact-list li i {
@@ -195,39 +195,41 @@
    @media (max-width:768px){
      body { padding: 1.5rem 5vw; }
    
-     .navbar{
+     .navbar{ /* Mobile navbar container takes full width within body padding */
        flex-wrap:wrap;
-       margin:0 0 2rem 0; /* Full width for mobile navbar container */
+       margin:0 0 2rem 0;
        padding: 0;
-       gap: 0.6rem; /* Adjust gap for mobile navbar items */
+       gap: 0.6rem;
      }
-     .nav-links { display: none !important; } /* Ensure it's hidden, JS will show */
-     .nav-links.open {
-       display:flex !important; /* Needs !important if base .nav-links has display:flex */
-       position:fixed;top:0;left:0;width:min(80vw, 300px);
+     .nav-links { display: none !important; } /* Nav links are in the drawer */
+     .nav-links.open { /* Styles for the opened drawer */
+       display:flex !important;
+       position:fixed;top:0;left:0;
+       width: 25vw; /* Drawer width set to 1/4 of viewport width */
+       /* Consider adding a min-width like `min-width: 180px;` if 25vw is too narrow on small phones */
        height:100vh;
        background:var(--bg);flex-direction:column;gap:1.2rem;
        padding:3rem 1.5rem 2rem;
        list-style:none;
-       transform:translateX(0);
+       transform:translateX(0); /* JS toggles class for transform */
        transition:transform .3s ease;z-index:200;
        box-shadow:2px 0 8px rgba(var(--accent-rgb-val),.15);
        overflow-y: auto;
-       margin-right: 0; 
+       margin-right: 0;
      }
-     ul.nav-links:not(.open) { transform: translateX(-100%); }
+     ul.nav-links:not(.open) { transform: translateX(-100%); } /* Initial hidden state */
      .dark .nav-links.open {background:var(--bg-dark);}
-     .nav-links a{font-size:1.1rem;padding:.5rem .8rem;} /* Ensure good tap area in drawer */
+   
+     .nav-links a{font-size:1.1rem;padding:.5rem .8rem; border-radius: 999px;} /* Pill shape in drawer too */
      .nav-links a:hover, .nav-links a.active {
-       background-color: rgba(var(--accent-rgb-val), 0.08); /* Same hover as desktop for consistency */
+       background-color: rgba(var(--accent-rgb-val), 0.08);
      }
      .dark .nav-links a:hover, .dark .nav-links a.active {
        background-color: rgba(var(--accent-rgb-val), 0.15);
      }
    
-   
      .divider{display: inline-block; order:1;}
-     .hamburger{display:block;order:0;}
+     .hamburger{display:block;order:0;} /* Hamburger icon is just the fa-bars, no extra box */
      .brand{order:2; font-size: 1rem;}
      .theme-btn{order:3;margin-left:auto;}
    
@@ -237,39 +239,38 @@
      }
      .backdrop.show{opacity:1;pointer-events:auto;}
    
-     .hero{
+     .hero{ /* Hero block centered on mobile */
        grid-template-columns:1fr;
-       text-align:center; /* Center image container and text block */
+       text-align:center;
        justify-items:center;
        gap: 1.5rem;
-       margin:0 auto 2rem auto; /* Centered block on mobile */
+       margin:0 auto 2rem auto;
      }
-     .hero-text-content { text-align: center; } /* Hero text centered on mobile */
+     .hero-text-content { text-align: center; } /* Hero text content centered on mobile */
      .hero-text-content h1 { font-size: 1.9rem; text-align: center; }
      .hero-text-content p { max-width: 100%; text-align: center; }
-     .hero-social { justify-content: center; } /* Ensure social icons are centered */
+     .hero-social { justify-content: center; }
    
      .hero img{width:180px;height:180px;margin-bottom:1rem;}
    
-     .section {
-       margin:0 auto 2rem auto; /* Centered block on mobile */
+     .section { /* Section blocks centered on mobile */
+       margin:0 auto 2rem auto;
      }
-     .section h2 {
+     .section h2 { /* Section headings centered on mobile */
        font-size: 1.6rem;
-       text-align: center; /* Section headings centered on mobile */
+       text-align: center;
      }
-     .recent-news-section .timeline .event {
-         text-align: left; /* Keep timeline event text left-aligned for readability on mobile */
+     .recent-news-section .timeline .event { /* Timeline event text remains left-aligned for readability */
+         text-align: left;
      }
    
-   
-     .timeline{margin:2rem 0;padding-left:0.8rem;} /* timeline itself is part of centered section */
+     .timeline{margin:2rem 0;padding-left:0.8rem;}
      .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;}
      .timeline time { grid-column: 1; font-size: .75rem; padding-right: .5rem; white-space: nowrap;}
      .timeline .event{grid-column:2;}
      .timeline li::before { left: -16.5px; }
    
-     .section-divider { margin: 2rem auto; max-width:90%;} /* Centered, slightly shorter divider on mobile */
+     .section-divider { margin: 2rem auto; max-width:90%;}
    }
    
    @media (max-width:480px) {
@@ -277,7 +278,12 @@
      .hero img {width: 150px; height: 150px;}
      .hero-text-content h1 { font-size: 1.7rem; }
    
-     .timeline li { grid-template-columns: 1fr; } /* Stack time and event on very small screens */
-     .timeline time { margin-bottom: 0.25rem; text-align: left; } /* Keep time left for stacked view */
+     .nav-links.open { /* Adjust drawer width for very small screens if 25vw is too small */
+         width: 50vw; /* Example: make it wider on very small screens */
+         /*min-width: 160px; /* Or ensure a minimum pixel width */
+     }
+   
+     .timeline li { grid-template-columns: 1fr; }
+     .timeline time { margin-bottom: 0.25rem; text-align: left; }
      .timeline li::before { top: 7px; }
    }
