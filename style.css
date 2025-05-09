@@ -57,7 +57,7 @@ a.btn:hover,.card:hover,.hero-social a:hover,.nav-links a:hover{opacity:1;}
 
 /* 〰〰 desktop / laptop tweak: add symmetric padding 〰〰 */
 @media(min-width:769px){
-  .navbar{padding-left:2.2rem;padding-right:2.2rem;} /* adjust numbers to taste */
+  .navbar{padding-left:3.5rem;padding-right:3.5rem;} /* adjust numbers to taste */
 }
 
 /************************************************************
