@@ -11,7 +11,7 @@
      --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255;
      --bg-card-dark: #2a2a2e;
      /* Adjusted for more visible divider in dark mode */
-     --divider-color-dark: #505050; 
+     --divider-color-dark: #373737; 
      font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
    }
    html {
