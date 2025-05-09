@@ -50,6 +50,8 @@
   const closeDrawer = () => {
     if (navMenu && backdropOverlay && hamburgerBtn) {
       navMenu.classList.remove('open');
+      // For transform-based hiding/showing:
+      // navMenu.style.transform = 'translateX(-100%)';
       backdropOverlay.classList.remove('show');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
     }
@@ -58,6 +60,8 @@
   const openDrawer = () => {
     if (navMenu && backdropOverlay && hamburgerBtn) {
       navMenu.classList.add('open');
+      // For transform-based hiding/showing:
+      // navMenu.style.transform = 'translateX(0)';
       backdropOverlay.classList.add('show');
       hamburgerBtn.setAttribute('aria-expanded', 'true');
     }
@@ -65,7 +69,7 @@
 
   if (hamburgerBtn && navMenu && backdropOverlay) {
     hamburgerBtn.onclick = (e) => {
-      e.stopPropagation(); // Prevent click from bubbling to document
+      e.stopPropagation(); 
       const isOpen = navMenu.classList.contains('open');
       if (isOpen) {
         closeDrawer();
@@ -75,14 +79,10 @@
     };
     backdropOverlay.onclick = closeDrawer;
 
-    /* Close when a nav link is tapped */
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        // Only close if it's a link within the current page (hash link) or a different page
-        // For single page apps, you might need more complex logic
         closeDrawer();
     }));
 
-    // Close drawer on 'Escape' key press
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('open')) {
         closeDrawer();

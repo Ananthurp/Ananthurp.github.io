@@ -3,96 +3,133 @@
    ──────────────────────────────────────────────────────────── */
    *{margin:0;padding:0;box-sizing:border-box;}
    :root{
-     --accent:#000; --accent-hover:#333;
+     --accent:#000; --accent-hover:#333; --accent-rgb-val: 0,0,0;
      --bg:#fafafa;  --text:#000;
-     --bg-card: #fff; /* Added for cards */
-     --bg-dark:#1f1f23; --text-dark:#fff;
-     --bg-card-dark: #2a2a2e; /* Added for cards in dark mode */
-     font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif; /* Expanded font stack */
+     --bg-card: #fff;
+     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val: 255,255,255;
+     --bg-card-dark: #2a2a2e;
+     font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
    }
    html {
-     scroll-behavior: smooth; /* Added for smooth scrolling */
+     scroll-behavior: smooth;
    }
    body{
      background:var(--bg);color:var(--text);
-     line-height:1.6;padding:2rem 4vw;
+     line-height:1.6;padding:2rem 4vw; /* Body padding creates space for left-aligned content */
      transition:background .3s,color .3s;
-     display: flex; /* For footer positioning */
-     flex-direction: column; /* For footer positioning */
-     min-height: 100vh; /* For footer positioning */
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
    }
-   .dark{background:var(--bg-dark);color:var(--text-dark);
-         --accent:#fff;--accent-hover:#ccc;}
+   .dark{
+     background:var(--bg-dark);color:var(--text-dark);
+     --accent:#fff; --accent-hover:#ccc; --accent-rgb-val: var(--accent-dark-rgb-val);
+   }
    
    /* links */
-   a,a:visited{color:var(--accent); text-decoration: none;} /* Removed default underline */
-   a:hover{color:var(--accent-hover); text-decoration: underline;} /* Underline on hover */
+   a,a:visited{color:var(--accent); text-decoration: none;}
+   a:hover{
+     color:var(--accent-hover);
+     text-decoration: none; /* No underline on general links by default on hover */
+     opacity: 0.85; /* Subtle highlight for general links */
+   }
    
    /* ── NAVBAR (desktop) ─────────────────────────────────────── */
-   .navbar{display:flex;align-items:center;gap:1.2rem;max-width:1200px;margin:0 auto 3rem;}
+   /* Desktop navbar: Brand & links left, theme toggle right */
+   .navbar{
+     display:flex;align-items:center;gap:1.2rem;
+     max-width:100%; /* Allow navbar to span full width within body padding */
+     margin:0 0 3rem 0; /* Removed auto horizontal margins, align left */
+     padding: 0.5rem 0; /* Optional: Add some padding to the navbar itself */
+   }
    .brand{font-weight:700;font-size:1.1rem;white-space:nowrap;}
-   .divider{opacity:.6;}
-   .hamburger{display:none;border:none;background:none;font-size:1.35rem;color:inherit;cursor:pointer}
+   .divider{opacity:.6; display: none;} /* Hide | divider on desktop, only for mobile */
    
    /* nav-links inline for desktop */
-   .nav-links{display:flex;gap:1rem;list-style:none;}
-   .nav-links a{color:inherit;text-decoration:none;position:relative;padding:.2rem .1rem;}
-   .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;
-     background:var(--accent);transition:width .25s;}
-   .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
-   .dark .nav-links a::after{background:var(--accent);}
+   .nav-links{display:flex;gap:0.5rem;list-style:none; margin-right: auto;} /* Pushes theme-btn to the right */
+   .nav-links a{
+     color:inherit;text-decoration:none;position:relative;
+     padding:.3rem .6rem; /* Adjusted padding for background highlight */
+     border-radius: 4px; /* Rounded corners for highlight */
+     transition: background-color .25s, color .25s;
+   }
+   /* Removed ::after underline effect */
+   .nav-links a:hover, .nav-links a.active { /* Combined hover and active style */
+     background-color: rgba(var(--accent-rgb-val), 0.07); /* Subtle background highlight */
+     color: var(--accent); /* Ensure text color remains or enhances */
+   }
+   .dark .nav-links a:hover, .dark .nav-links a.active {
+     background-color: rgba(var(--accent-rgb-val), 0.15);
+   }
    
-   /* theme button */
-   .theme-btn{margin-left:auto;background:none;border:none;color:var(--accent);
-     font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .25s;}
+   
+   /* theme button - already uses margin-left:auto in original HTML structure which is fine if nav-links doesn't push it*/
+   /* We ensured nav-links pushes it by adding margin-right: auto to nav-links */
+   .theme-btn{
+     /* margin-left:auto; /* This is now handled by nav-links margin-right: auto */
+     background:none;border:none;color:var(--accent);
+     font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .25s;
+   }
    .theme-btn:hover{color: var(--accent-hover);}
    
    
    /* ── HERO ─────────────────────────────────────────────────── */
-   .hero{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
-     max-width:950px;margin:0 auto 3rem;}
+   .hero{
+     display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;
+     max-width:950px; /* Max width for readability */
+     margin:0 0 3rem 0; /* Left-aligned */
+     text-align: left; /* Ensure content within is left-aligned */
+   }
    .hero img{width:230px;height:230px;border-radius:50%;object-fit:cover;
      box-shadow:0 4px 12px rgba(0,0,0,.15);}
    .dark .hero img {box-shadow:0 4px 12px rgba(255,255,255,.1);}
-   .hero h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent);}
-   .hero p{margin-bottom:1.1rem;max-width:540px;} /* Increased max-width slightly */
-   .hero-social{display:flex;gap:.65rem;margin-top:1.1rem;justify-content:center;}
-   .hero-social a{font-size:1.3rem;color:inherit;transition:color .2s, transform .2s; /* Added transform */}
-   .hero-social a:hover{color:var(--accent); transform: scale(1.15); /* Slight scale up */}
+   
+   .hero-text-content h1{font-size:2.1rem;margin-bottom:.4rem;color:var(--accent); text-align: left;}
+   .hero-text-content p{margin-bottom:1.1rem;max-width:540px; text-align: left;}
+   .hero-text-content .btn { margin-top: 0.5rem; } /* Added some space above button */
+   
+   .hero-social{display:flex;gap:.65rem;margin-top:1.1rem;justify-content:center;} /* Social icons can remain centered under image */
+   .hero-social a{font-size:1.3rem;color:inherit;transition:color .2s, transform .2s;}
+   .hero-social a:hover{color:var(--accent); transform: scale(1.15); opacity: 1;} /* Ensure full opacity on hover */
+   
    .btn{display:inline-block;background:none;border:2px solid var(--accent);color:var(--accent);
      padding:.5rem 1.4rem;border-radius:999px;text-decoration:none;transition:background .25s,color .25s, transform .2s;}
-   .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px);}
+   .btn:hover{background:var(--accent);color:var(--bg); transform: translateY(-2px); opacity: 1;} /* Ensure full opacity */
    .dark .btn:hover{color:var(--bg-dark);}
    
    /* divider */
-   .section-divider{border:0;border-top:1px solid rgba(0,0,0,.12);margin:2rem auto;max-width:960px;}
-   .dark .section-divider{border-top:1px solid rgba(255,255,255,.18);}
+   .section-divider{border:0;border-top:1px solid rgba(var(--accent-rgb-val),.12);margin:2.5rem 0;max-width:950px;} /* Left aligned, full width up to max */
+   .dark .section-divider{border-top:1px solid rgba(var(--accent-rgb-val),.18);}
    
    /* ── Section Shared Styles ───────────────────────────────── */
    .section{
-     max-width:1000px;
-     margin:0 auto 3rem;
-     padding:0 1rem; /* Ensures content doesn't touch edges on smaller viewports before media query */
+     max-width:950px; /* Consistent max-width for readability, aligned with hero */
+     margin:0 0 3rem 0; /* Left-aligned */
+     padding:0; /* Body padding will handle side spacing */
    }
    .section h2 {
-     font-size: 1.8rem; /* Consistent heading size */
+     font-size: 1.8rem;
      margin-bottom: 1.5rem;
      color: var(--accent);
-     text-align: center; /* Center section titles */
+     text-align: left; /* Section headings left-aligned */
    }
    /* ── TIMELINE (desktop) ───────────────────────────────────── */
-   .timeline{margin:1rem auto 3rem;max-width:900px;border-left:2px solid var(--accent); padding-left: 1.3rem;} /* Adjusted margin-top and padding */
+   .timeline{
+     margin:1rem 0 3rem 0; /* Left-aligned, first child of left-aligned section */
+     max-width:100%; /* Timeline takes width of its .section parent */
+     border-left:2px solid var(--accent); padding-left: 1.3rem;
+   }
    .timeline li{
      display:grid;grid-template-columns:140px 1fr;column-gap:1rem;align-items:start;
-     margin:0 0 1.6rem 0; /* Removed left margin, using padding on ul now */
+     margin:0 0 1.6rem 0;
      position:relative;list-style:none;
    }
    .timeline li::before{
-     content:"";position:absolute;left:-21.5px; /* Adjusted for padding on ul */
-     top:4px; /* Fine-tune vertical alignment */
+     content:"";position:absolute;left:-21.5px;
+     top:4px;
      width:11px;height:11px;
      background:var(--accent);border-radius:50%;
-     border: 2px solid var(--bg); /* Makes the dot stand out from the line */
+     border: 2px solid var(--bg);
    }
    .dark .timeline li::before { border-color: var(--bg-dark); }
    .timeline time{font-size:.82rem;opacity:.75;}
@@ -100,42 +137,44 @@
    
    
    /* ── Grid for Projects & Blog Cards ────────────────────────── */
-   .grid {
+   .grid { /* Assuming .grid is inside a .section that is now left-aligned and has max-width */
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); /* Responsive cards */
+     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Slightly smaller min for cards */
      gap: 1.5rem;
      margin-top: 1.5rem;
+     max-width: 100%; /* Grid takes width of its .section parent */
    }
    
    .card {
      background: var(--bg-card);
      padding: 1.5rem;
      border-radius: 8px;
-     box-shadow: 0 2px 8px rgba(0,0,0,.08);
+     box-shadow: 0 2px 8px rgba(var(--accent-rgb-val),.08);
      text-decoration: none;
      color: inherit;
      transition: transform .2s ease-out, box-shadow .2s ease-out;
      display: flex;
      flex-direction: column;
    }
+   .card:hover { opacity: 1; } /* Override general link hover opacity for cards */
    
    .dark .card {
      background: var(--bg-card-dark);
-     box-shadow: 0 2px 8px rgba(0,0,0,.25);
+     box-shadow: 0 2px 8px rgba(var(--accent-rgb-val),.1); /* Adjusted for dark mode */
    }
    
    .card:hover {
      transform: translateY(-5px);
-     box-shadow: 0 6px 16px rgba(0,0,0,.12);
+     box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.12);
    }
    .dark .card:hover {
-     box-shadow: 0 6px 16px rgba(0,0,0,.35);
+     box-shadow: 0 6px 16px rgba(var(--accent-rgb-val),.2); /* Adjusted for dark mode */
    }
    
    .card img {
      width: 100%;
-     height: 180px; /* Fixed height for uniform card image size */
-     object-fit: cover; /* Ensures image covers the area, might crop */
+     height: 180px;
+     object-fit: cover;
      border-radius: 4px;
      margin-bottom: 1rem;
    }
@@ -156,108 +195,110 @@
      font-size: .8rem;
      opacity: .7;
      margin-top: auto;
-     display: block; /* Ensure it takes its own line if needed */
+     display: block;
    }
    
    /* ── Contact Page List ────────────────────────────────────── */
-   .contact-list {
+   .contact-list { /* Assuming .contact-list is inside a .section */
      list-style: none;
      padding: 0;
-     margin: 1.5rem auto 0; /* Center the list if container is wider */
-     max-width: 600px; /* Constrain width for better readability */
+     margin: 1.5rem 0 0 0; /* Left-aligned */
+     max-width: 100%; /* Takes width of its .section parent */
    }
    
    .contact-list li {
      display: flex;
      align-items: center;
-     margin-bottom: 1.2rem; /* Increased spacing */
+     margin-bottom: 1.2rem;
      font-size: 1.05rem;
    }
+   .contact-list li a:hover { opacity: 0.85; } /* Apply general link hover */
+   .contact-list li a:hover i { transform: scale(1.1); opacity: 1; }
+   
    
    .contact-list li i {
      margin-right: .85rem;
-     font-size: 1.4rem; /* Slightly larger icons */
+     font-size: 1.4rem;
      width: 30px;
      text-align: center;
      color: var(--accent);
      transition: transform 0.2s;
    }
-   .contact-list li a:hover i {
-       transform: scale(1.1);
-   }
    
    
    /* footer */
    footer{
-     text-align:center;
+     text-align:center; /* Footer text can remain centered */
      font-size:.9rem;
      opacity:.85;
-     margin-top:auto; /* Pushes footer to bottom with flexbox on body */
-     padding: 2rem 0 1rem; /* Added some padding */
+     margin-top:auto;
+     padding: 2rem 0 1rem;
    }
    
    /* ── MOBILE ≤768 px ───────────────────────────────────────── */
-@media (max-width:768px){
-  body { padding: 1.5rem 5vw; }
-
-  .navbar{
-    /* display:flex; align-items:center; gap:1.2rem; are inherited and fine */
-    flex-wrap:wrap;
-    
-    /* UPDATED FOR MOBILE NAVBAR ALIGNMENT */
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0; /* Or adjust as needed, removing auto L/R margin makes it full-width within body padding */
-    /* max-width: 1200px; is inherited but won't be an issue on mobile */
-    margin-bottom: 2rem; /* This was already set and is fine */
-  }
-
-  /* order row */
-  .hamburger{display:block;order:0;}
-  .divider{order:1;}
-  .brand{order:2; font-size: 1rem;}
-  .theme-btn{order:3;margin-left:auto;} /* This correctly pushes it to the right */
-
-  /* slide-out drawer */
-  .nav-links{
-    position:fixed;top:0;left:0;width:min(80vw, 300px);
-    height:100vh;
-    background:var(--bg);flex-direction:column;gap:1.2rem;
-    padding:3rem 1.5rem 2rem;
-    list-style:none;
-    transform:translateX(-100%);transition:transform .3s ease;z-index:200;
-    box-shadow:2px 0 8px rgba(0,0,0,.15);
-    overflow-y: auto;
-  }
-  .nav-links.open{transform:translateX(0);}
-  .nav-links a{font-size:1.1rem;padding:.3rem 0;}
-
-  .dark .nav-links{background:var(--bg-dark);}
-
-  .backdrop{
-    position:fixed;inset:0;background:rgba(0,0,0,.4);
-    opacity:0;pointer-events:none;transition:opacity .3s;z-index:100;
-  }
-  .backdrop.show{opacity:1;pointer-events:auto;}
-
-  .hero{grid-template-columns:1fr;text-align:center;justify-items:center; gap: 1.5rem;}
-  .hero img{width:180px;height:180px;margin-bottom:1rem;}
-  .hero h1 { font-size: 1.9rem; }
-  .hero p { max-width: 100%; }
-
-  .timeline{margin:2rem 0;padding-left:0.8rem;}
-  .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;}
-  .timeline time { grid-column: 1; font-size: .75rem; padding-right: .5rem; white-space: nowrap;}
-  .timeline .event{grid-column:2;}
-  .timeline li::before { left: -16.5px; }
-
-  .section h2 { font-size: 1.6rem; }
-}
-
-@media (max-width:480px) {
-  .hero img {width: 150px; height: 150px;}
-  .hero h1 { font-size: 1.7rem; }
-  .timeline li { grid-template-columns: 1fr; }
-  .timeline time { margin-bottom: 0.25rem; }
-  .timeline li::before { top: 7px; }
-}
+   @media (max-width:768px){
+     body { padding: 1.5rem 5vw; }
+   
+     .navbar{
+       flex-wrap:wrap;
+       margin-left: 0; margin-right: 0; margin-top: 0;
+       margin-bottom: 2rem;
+       padding: 0; /* Remove desktop padding for mobile navbar */
+     }
+     .nav-links { display: none; } /* Hidden, managed by JS for drawer */
+     .nav-links.open { display:flex; /* As per original script.js logic */
+       position:fixed;top:0;left:0;width:min(80vw, 300px);
+       height:100vh;
+       background:var(--bg);flex-direction:column;gap:1.2rem;
+       padding:3rem 1.5rem 2rem;
+       list-style:none;
+       transform:translateX(0); /* JS toggles class, not transform directly */
+       transition:transform .3s ease;z-index:200;
+       box-shadow:2px 0 8px rgba(var(--accent-rgb-val),.15);
+       overflow-y: auto;
+       margin-right: 0; /* Reset margin from desktop */
+     }
+     /* This is the style for when it's not open (original state) */
+     ul.nav-links:not(.open) { transform: translateX(-100%); }
+   
+   
+     .nav-links a{font-size:1.1rem;padding:.5rem .8rem;} /* Ensure good tap area */
+     .dark .nav-links.open {background:var(--bg-dark);}
+   
+   
+     .divider{display: inline-block; order:1;} /* Show | divider on mobile */
+     .hamburger{display:block;order:0;}
+     .brand{order:2; font-size: 1rem;}
+     .theme-btn{order:3;margin-left:auto;}
+   
+     .backdrop{
+       position:fixed;inset:0;background:rgba(0,0,0,.4);
+       opacity:0;pointer-events:none;transition:opacity .3s;z-index:100;
+     }
+     .backdrop.show{opacity:1;pointer-events:auto;}
+   
+     .hero{grid-template-columns:1fr;text-align:center;justify-items:center; gap: 1.5rem; margin-left:0; margin-right:0;} /* Ensure hero is also full width in mobile */
+     .hero-text-content { text-align: left; } /* Hero text left aligned on mobile too */
+     .hero-text-content h1 { font-size: 1.9rem; }
+     .hero-text-content p { max-width: 100%; }
+   
+     .hero img{width:180px;height:180px;margin-bottom:1rem;}
+   
+     .timeline{margin:2rem 0;padding-left:0.8rem;}
+     .timeline li{grid-template-columns:auto 1fr;column-gap:0.75rem;}
+     .timeline time { grid-column: 1; font-size: .75rem; padding-right: .5rem; white-space: nowrap;}
+     .timeline .event{grid-column:2;}
+     .timeline li::before { left: -16.5px; }
+   
+     .section { margin-left:0; margin-right:0; padding:0; } /* Sections full width in mobile body padding */
+     .section h2 { font-size: 1.6rem; }
+     .section-divider { margin: 2rem 0; } /* Full width divider on mobile */
+   }
+   
+   @media (max-width:480px) {
+     .hero img {width: 150px; height: 150px;}
+     .hero-text-content h1 { font-size: 1.7rem; }
+     .timeline li { grid-template-columns: 1fr; } /* Stack time and event on very small screens */
+     .timeline time { margin-bottom: 0.25rem; }
+     .timeline li::before { top: 7px; }
+   }
