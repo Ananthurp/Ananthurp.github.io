@@ -319,15 +319,4 @@
      .timeline li::before { top: 7px; }
    }
 
-   /* Fullwidth divider wrapper */
-   .fullwidth-divider {
-     width: 100%;
-     padding: 0;
-     margin: 2.5rem 0;
-   }
-
-   .fullwidth-divider .section-divider {
-     max-width: none;
-     width: 100%;
-     border-top: 1px solid var(--divider-color);
-   }
+  
