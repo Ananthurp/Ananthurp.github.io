@@ -1,22 +1,23 @@
 /* ─────────────────────────────────────────────────────────────
    Global styles – off-white light | dark-gray night
    ──────────────────────────────────────────────────────────── */
-   * { margin: 0; padding: 0; box-sizing: border-box; }
+   *{margin:0;padding:0;box-sizing:border-box;}
 
    :root{
-     --accent:#000; --accent-hover:#333; --accent-rgb-val:0,0,0;
-     --bg:#fafafa;  --text:#000;
-     --bg-card:#fff;
+     /* colour palette */
+     --accent:#000;               --accent-hover:#333;  --accent-rgb-val:0,0,0;
+     --bg:#fafafa;                --text:#000;          --bg-card:#fff;
      --divider-color:#d1d1d1;
    
-     --bg-dark:#1f1f23; --text-dark:#fff; --accent-dark-rgb-val:255,255,255;
-     --bg-card-dark:#2a2a2e;
-     --divider-color-dark:#373737;
+     --bg-dark:#1f1f23;           --text-dark:#fff;     --accent-dark-rgb-val:255,255,255;
+     --bg-card-dark:#2a2a2e;      --divider-color-dark:#373737;
    
      font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,
-                 Roboto,"Helvetica Neue",sans-serif;
+                  Roboto,"Helvetica Neue",sans-serif;
    }
+   
    html{scroll-behavior:smooth;}
+   
    body{
      background:var(--bg);color:var(--text);
      line-height:1.6;padding:2rem 4vw;
@@ -86,20 +87,20 @@
    .btn:hover{background:var(--accent);color:var(--bg);transform:translateY(-2px);}
    .dark .btn:hover{color:var(--bg-dark);}
    
-   /* divider between Hero & Recent News */
-   .section-divider{
-     border:0;
-     border-top:1px solid var(--divider-color);
-     border-bottom:1px solid var(--divider-color);
-     height:0;
-     margin:3rem auto;      
-     max-width:600px;
-     overflow:clip;
+   /* ── SECTION basics ─────────────────────────────────────────── */
+   .section{
+     max-width:950px;margin:0 auto 3rem;padding:0;
    }
-   
-   /* ── Section basics ─────────────────────────────────────────── */
-   .section{max-width:950px;margin:0 auto 3rem;padding:0;}
-   .section h2{font-size:1.8rem;margin-bottom:1.5rem;color:var(--accent);}
+   /* modern accent bar */
+   .section h2{
+     position:relative;
+     font-size:1.8rem;margin:0 0 1.5rem;color:var(--accent);text-align:left;
+   }
+   .section h2::before{
+     content:"";display:block;position:absolute;left:0;top:-1.2rem;
+     width:48px;height:4px;border-radius:999px;background:var(--accent);
+   }
+   .dark .section h2::before{background:#fff;}  /* keep visible in dark mode */
    
    /* ── TIMELINE ───────────────────────────────────────────────── */
    .timeline{
@@ -146,7 +147,7 @@
    /* footer */
    footer{text-align:center;font-size:.9rem;opacity:.85;margin-top:auto;padding:2rem 0 1rem;}
    
-   /* ── MOBILE ≤768 px ─────────────────────────────────────────── */
+   /* ── Responsive ≤768 px ─────────────────────────────────────── */
    @media(max-width:768px){
      body{padding:1.5rem 5vw;}
    
@@ -182,17 +183,16 @@
      .hero img{width:230px;height:230px;}
    
      .section{margin:0 auto 2rem;}
-     .section h2{font-size:1.6rem;text-align:center;}
+     .section h2{text-align:center;}
+     .section h2::before{left:50%;transform:translateX(-50%);} /* centre the accent bar */
    
      .timeline{margin:2rem 0;padding-left:.8rem;}
      .timeline li{grid-template-columns:auto 1fr;column-gap:.75rem;}
      .timeline time{grid-column:1;font-size:.75rem;padding-right:.5rem;white-space:nowrap;}
      .timeline li::before{left:-16.5px;}
-   
-     .section-divider{margin:2rem auto;max-width:90%;}
    }
    
-   /* ── MOBILE ≤480 px ─────────────────────────────────────────── */
+   /* ── Mobile ≤480 px ─────────────────────────────────────────── */
    @media(max-width:480px){
      body{padding:1rem 4vw;}
      .hero img{width:210px;height:210px;}
