@@ -124,7 +124,7 @@
      height: 0; /* Collapse HR to only show the border */
      margin: 2.5rem auto; /* Centered by default for desktop */
      max-width: 950px; /* Max width consistent with sections */
-     overflow: visible; /* Ensure it's not clipped */
+     overflow: clip; /* Ensure it's not clipped */
    }
    
    /* ── Section Shared Styles (Desktop & Base) ───────────────── */
