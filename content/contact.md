@@ -1,6 +1,6 @@
 ---
 title: "Get in Touch"
-description: "Email, LinkedIn, GitHub and other ways to reach me."
+
 draft: false
 ---
 ### I’m always up for collaborations and good conversations.

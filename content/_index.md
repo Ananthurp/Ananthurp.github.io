@@ -1,5 +1,5 @@
 ---
-title: "Hi, I’m Ananthu !"
+title: "Hello, I’m Ananthu !"
 layout: "profile"               # tells PaperMod to use the hero/portrait layout
 outputs: ["HTML", "RSS"] 
 # --- profile-mode specific ---
@@ -28,8 +28,8 @@ timeline:
 # …add the rest
 ---
 Welcome!  
-I’m a machine-learning & deep-learning engineer driven by curiosity.  
-From NLP and large-language models to computer vision and intelligent
+I’m a machine learning & deep learning engineer driven by curiosity.  
+From NLP and large language models to computer vision and intelligent
 systems, I love building practical AI solutions that push boundaries.
 
 {{< timeline >}}
