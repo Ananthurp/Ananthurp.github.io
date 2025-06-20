@@ -1,0 +1,76 @@
+/* ─────────────────────────────
+   1. Avatar shadow + size tweaks
+   ───────────────────────────── */
+   .profile.avatar img,
+   .hero img {             /* matches the image in PaperMod profile-mode */
+     width: 280px;
+     height: 280px;
+     border-radius: 50%;
+     object-fit: cover;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+   }
+   .dark .profile.avatar img,
+   .dark .hero img {
+     box-shadow: 0 4px 12px rgba(255, 255, 255, .10);
+   }
+   
+   /* ─────────────────────────────
+      2. Section accent bar
+      ───────────────────────────── */
+   .section-title {        /* PaperMod wraps h2 in .section-title by default */
+     position: relative;
+     margin-bottom: 1.5rem;
+   }
+   .section-title::before {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: -1.2rem;
+     width: 48px;
+     height: 4px;
+     border-radius: 999px;
+     background: var(--theme-accent, var(--secondary));
+   }
+   
+   /* ─────────────────────────────
+      3. Timeline component
+      ───────────────────────────── */
+   .timeline {
+     margin: 1rem 0 3rem;
+     padding-left: 1.3rem;
+     border-left: 2px solid var(--theme-accent, currentColor);
+   }
+   .timeline li {
+     display: grid;
+     grid-template-columns: 140px 1fr;
+     column-gap: 1rem;
+     align-items: start;
+     margin-bottom: 1.6rem;
+     list-style: none;
+     position: relative;
+   }
+   .timeline li::before {
+     content: "";
+     position: absolute;
+     left: -21.5px;
+     top: 4px;
+     width: 11px;
+     height: 11px;
+     border-radius: 50%;
+     background: var(--theme-accent, currentColor);
+     border: 2px solid var(--body-bg);
+   }
+   .timeline time {
+     font-size: .82rem;
+     opacity: .75;
+   }
+   
+   /* ─────────────────────────────
+      4. Navbar divider spacing
+      ───────────────────────────── */
+   .navbar .divider {
+     margin-left: .4rem;
+     margin-right: .4rem;
+     opacity: .6;
+   }
+   
