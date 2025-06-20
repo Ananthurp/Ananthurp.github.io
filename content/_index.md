@@ -1,6 +1,7 @@
 ---
 title: "Hi, I’m Ananthu !"
 layout: "profile"               # tells PaperMod to use the hero/portrait layout
+outputs: ["HTML", "RSS"] 
 # --- profile-mode specific ---
 imageUrl: "images/profile.jpg"  # path is relative to /static
 imageTitle: "Ananthu Rajendran Pillai portrait"

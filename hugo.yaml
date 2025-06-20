@@ -1,8 +1,63 @@
-baseURL: https://example.org/
+baseURL: "https://ananthurp.github.io/"
 languageCode: en-us
-title: My New Hugo Site
+title: "Ananthu Rajendran Pillai"
+theme: "PaperMod"            # ←  tells Hugo which theme to use
 
+# ------------------------------------------------------------------
+# Site-wide parameters that PaperMod looks for
+# ------------------------------------------------------------------
 params:
-  defaultTheme: auto
+  defaultTheme: auto         # light / dark / OS auto
   customCSS:
-    - "css/extended/ananthu.css" 
+    - "css/extended/ananthu.css"
+
+  # ---------- profile (hero) section ----------
+  profileMode:
+    enabled: true
+    title: "Hi, I’m Ananthu !"
+    subtitle: >
+      I’m a passionate machine-learning & deep-learning engineer driven
+      by curiosity. From NLP & LLMs to computer vision, I love building
+      practical AI solutions that push boundaries.
+    imageUrl: "images/profile.jpg"
+    imageTitle: "Ananthu Rajendran Pillai portrait"
+    buttons:
+      - name: "View Resume"
+        url: "/Ananthurp_Resume.pdf"
+      - name: "Projects"
+        url: "/projects/"
+
+  # ---------- social icons under the hero ----------
+  socialIcons:
+    - name: github
+      url: "https://github.com/Ananthurp"
+    - name: linkedin
+      url: "https://linkedin.com/in/ananthurp5"
+    - name: email
+      url: "mailto:ananthurpillai547@gmail.com"
+    - name: whatsapp
+      url: "https://wa.me/917025056192"
+    - name: phone
+      url: "tel:+65-846-002-77"
+
+# ------------------------------------------------------------------
+# Main-nav menu (header links)
+# ------------------------------------------------------------------
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 30
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 40
