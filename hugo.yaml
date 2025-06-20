@@ -14,9 +14,9 @@ params:
   # ---------- profile (hero) section ----------
   profileMode:
     enabled: true
-    title: "Hi, I’m Ananthu !"
+    title: "Hello, I’m Ananthu !"
     subtitle: >
-      I’m a passionate machine-learning & deep-learning engineer driven
+      I’m a passionate machine learning & deep learning engineer driven
       by curiosity. From NLP & LLMs to computer vision, I love building
       practical AI solutions that push boundaries.
     imageUrl: "images/profile.jpg"
