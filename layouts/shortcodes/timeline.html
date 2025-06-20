@@ -1,0 +1,10 @@
+<ul class="timeline">
+  {{- $events := .Page.Params.timeline -}}
+  {{- range $events }}
+    <li>
+      <time datetime="{{ .date }}">{{ .human }}</time>
+      <span class="event">{{ .text }}</span>
+    </li>
+  {{- end }}
+</ul>
+
