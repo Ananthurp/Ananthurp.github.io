@@ -1,0 +1,30 @@
+name: Build & Publish
+on:
+  push:
+    branches: [source]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout *this* branch along with submodules (PaperMod)
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      # install Hugo Extended
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+          extended: true
+      # build the site
+      - name: Build site
+        run: hugo --minify
+      # deploy the generated /public folder to the main branch
+      - name: Deploy to main
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: main
+          force_orphan: true
+
