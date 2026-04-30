@@ -972,15 +972,33 @@ Ananthu Rajendran Pillai
 
 
 
+<style>
+  /* NUCLEAR OPTION: Completely erase the theme's default footer from existence */
+  footer, .footer { 
+    display: none !important; 
+    opacity: 0 !important; 
+    visibility: hidden !important; 
+    height: 0 !important; 
+  }
+  
+  /* Style for our brand new, custom footer */
+  .my-custom-footer {
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+    font-size: 16px;
+    width: 100%;
+  }
+</style>
+
 <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Find heading elements
+    // 1. Typewriter Animation
     const elements = document.querySelectorAll('h1, h2, h3');
     elements.forEach(el => {
-      // If the element contains your exact name, animate it
       if (el.textContent.trim() === 'Ananthu.') {
-        el.innerHTML = ''; // Clear the static text
+        el.innerHTML = ''; 
         new TypeIt(el, {
           strings: "Ananthu.",
           speed: 150,
@@ -990,6 +1008,13 @@ Ananthu Rajendran Pillai
         }).go();
       }
     });
+
+    // 2. Inject a brand new footer at the very bottom of the page
+    const newFooterHTML = '<div class="my-custom-footer container"><p class="mb-0 text-center">© 2026 Ananthu Rajendran Pillai. All rights reserved.</p></div>';
+    
+    // Find the main wrapper or body and attach the new footer
+    const mainContent = document.querySelector('#content') || document.body;
+    mainContent.insertAdjacentHTML('beforeend', newFooterHTML);
   });
 </script>
 
