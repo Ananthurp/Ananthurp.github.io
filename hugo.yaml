@@ -154,7 +154,7 @@ params:
     title: "Ananthu."
     subtitle: "Machine Learning Researcher & Engineer"
     content: "I love exploring machine learning, deep learning, and large language models, constantly learning and building along the way."
-    image: /images/profile.JPG
+    image: /images/profile_pic2.png
     roundImage: true # Make hero image circular | default false
     bottomImage:
       enable: false
